@@ -1,0 +1,24 @@
+@use "./global";
+@use "./mixins";
+@use "./typography";
+@use "./variables" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "AvenirNext";
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  //   box-sizing: border-box;
+  //   margin: 0;
+  //   padding: 0;
+  font-size: 1.6rem;
+}
