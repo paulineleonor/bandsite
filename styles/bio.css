@@ -76,6 +76,7 @@ body {
 .hero {
   background-image: url("../assets/images/hero-bio.jpg");
   height: 25rem;
+  width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
@@ -89,9 +90,54 @@ body {
   background-color: rgba(50, 50, 50, 0.5);
 }
 .hero__title {
+  position: relative;
+  margin-left: 1.6rem;
+}
+
+.about {
+  padding: 0 1.6rem;
+}
+.about__title {
   font-size: 2.4rem;
   line-height: 3.2rem;
   font-weight: bold;
-  position: relative;
-  margin-left: 1.6rem;
+  margin: 2.4rem 0 1.6rem 0;
+}
+.about__img {
+  width: 100%;
+  padding-bottom: 1.6rem;
+}
+.about__quote {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  font-weight: 600;
+}
+.about__subtitle {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-weight: normal;
+  margin: 2.4rem 0 1.6rem 0;
+}
+.about__copy {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-weight: normal;
+}
+.about__text {
+  margin-bottom: 1.6rem;
+}
+
+.gallery {
+  background-color: #fafafa;
+  padding: 2.4rem 1.6rem 0.8rem 1.6rem;
+}
+.gallery__img {
+  width: 100%;
+  padding: 0.8rem 0;
+}
+.gallery__title {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  font-weight: bold;
+  margin-bottom: 1.6rem;
 }/*# sourceMappingURL=bio.css.map */
