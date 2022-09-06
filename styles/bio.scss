@@ -13,6 +13,7 @@
   &__logo {
     max-width: 12rem;
     max-height: 2rem;
+    margin: 2.4rem 0 1.6rem 0;
   }
 }
 
@@ -33,7 +34,8 @@
     @include subheader-mobile;
     color: $brand-secondary-2;
     padding: 0.8rem 4rem;
-    width: auto;
+    width: 100%;
+    text-align: center;
 
     &--active {
       font-weight: bold;
@@ -41,5 +43,28 @@
       border-bottom: 2px solid white;
       font-weight: bold;
     }
+  }
+}
+
+.hero {
+  background-image: url("../assets/images/hero-bio.jpg");
+  height: 25rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  align-items: center;
+
+  &__overlay {
+    position: absolute;
+    width: 100%;
+    height: 25rem;
+    background-color: rgba(50, 50, 50, 0.5);
+  }
+
+  &__title {
+    @include header-mobile;
+    position: relative;
+    margin-left: 1.6rem;
   }
 }
