@@ -74,8 +74,37 @@ body {
 }
 
 .footer {
+  padding: 2.4rem 1.6rem 0 1.6rem;
   background-color: #323232;
   color: white;
+}
+.footer__title {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  font-weight: bold;
+  margin-bottom: 1.6rem;
+}
+.footer__icons {
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact {
+  margin: 2.4rem 0;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-weight: normal;
+}
+.contact__info {
+  text-decoration: none;
+  color: white;
+}
+.contact__info--bold {
+  font-weight: 600;
+}
+.contact__wrapper {
+  margin: 1.6rem 0;
 }
 
 .hero {
