@@ -73,6 +73,11 @@ body {
   font-weight: bold;
 }
 
+.footer {
+  background-color: #323232;
+  color: white;
+}
+
 .hero {
   background-image: url("../assets/images/hero-bio.jpg");
   height: 25rem;
