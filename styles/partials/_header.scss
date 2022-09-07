@@ -10,10 +10,24 @@
   justify-content: center;
   align-items: center;
 
+  @include tablet {
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 10rem;
+  }
+
+  &__link {
+    padding: 1.6rem 0 1.6rem 0;
+  }
+
   &__logo {
     max-width: 12rem;
     max-height: 2rem;
-    margin: 2.4rem 0 1.6rem 0;
+    // margin: 2.4rem 0 1.6rem 0;
+
+    @include tablet {
+      margin: 2.4rem 3.2rem;
+    }
   }
 }
 
@@ -24,18 +38,42 @@
   align-items: center;
   width: 100%;
 
+  @include tablet {
+    width: 35rem;
+    height: 100%;
+  }
+
   &__list {
     display: flex;
     list-style: none;
     width: 100%;
+
+    @include tablet {
+      justify-content: space-around;
+      height: 100%;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $brand-secondary-2;
+
+    @include tablet {
+      @include subheader-desktop;
+    }
   }
 
   &__item {
-    @include subheader-mobile;
-    color: $brand-secondary-2;
     padding: 0.8rem 4rem;
     width: 100%;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include tablet {
+      width: auto;
+      padding: 0;
+    }
 
     &--active {
       font-weight: bold;

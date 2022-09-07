@@ -7,7 +7,9 @@
   padding: 2.4rem 1.6rem 1.6rem 1.6rem;
   background-color: $brand-primary-1;
   color: white;
+}
 
+.social {
   &__title {
     @include header-mobile;
     margin-bottom: 1.6rem;
@@ -21,16 +23,18 @@
 }
 
 .contact {
-  margin: 2.4rem 0;
-  @include copy-mobile;
-
-  &__info {
-    text-decoration: none;
-    color: white;
+  &__details {
+    margin: 2.4rem 0;
+    @include copy-mobile;
   }
 
-  &__info--bold {
-    font-weight: 600;
+  &__copy {
+    text-decoration: none;
+    color: white;
+
+    &--bold {
+      font-weight: 600;
+    }
   }
 
   &__wrapper {
@@ -38,6 +42,6 @@
   }
 }
 
-.logo {
+.logo__img {
   margin: 3.2rem 0 1.6rem 0;
 }
