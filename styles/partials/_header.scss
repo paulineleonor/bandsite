@@ -1,7 +1,7 @@
 @use "./resets";
-@use "./typography";
-@use "./variables" as *;
 @use "./mixins" as *;
+@use "./variables" as *;
+@use "./typography";
 
 .header {
   background-color: $brand-primary-1;
@@ -57,9 +57,11 @@
   &__link {
     text-decoration: none;
     color: $brand-secondary-2;
+    padding-bottom: 2rem;
 
     @include tablet {
       @include subheader-desktop;
+      padding-bottom: 0;
     }
   }
 

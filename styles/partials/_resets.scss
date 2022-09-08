@@ -1,5 +1,5 @@
 @use "./global";
-@use "./mixins";
+@use "./mixins" as *;
 @use "./typography";
 @use "./variables" as *;
 
@@ -18,4 +18,26 @@ html {
 
 body {
   font-size: 1.6rem;
+}
+
+h1 {
+  position: relative;
+  margin-left: 1.6rem;
+
+  @include tablet {
+    @include page-header-desktop;
+    font-weight: 600;
+    margin-left: 4rem;
+  }
+}
+
+h2 {
+  @include header-mobile;
+  padding: 2.4rem 0 1.6rem 0;
+
+  @include tablet {
+    @include section-header-desktop;
+    padding: 4.8rem 0 3.6rem 0;
+    font-weight: 600;
+  }
 }
