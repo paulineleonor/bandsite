@@ -60,7 +60,7 @@
     padding-bottom: 2rem;
 
     @include tablet {
-      @include subheader-desktop;
+      font-size: 1.4rem;
       padding-bottom: 0;
     }
   }
@@ -80,7 +80,7 @@
     &--active {
       font-weight: bold;
       color: white;
-      border-bottom: 2px solid white;
+      border-bottom: 4px solid white;
       font-weight: bold;
     }
   }

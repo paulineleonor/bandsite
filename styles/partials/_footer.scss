@@ -9,7 +9,7 @@
   color: white;
 
   @include tablet {
-    padding: 0 3.6rem 1.6rem 3.6rem;
+    padding: 4.8rem 3.6rem 0 3.6rem;
   }
 }
 
@@ -18,10 +18,14 @@
   @include tablet {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 3.6rem;
+    // align-items: flex-end;
   }
+
   &__title {
     @include tablet {
-      margin-right: 3.6rem;
+      width: 33%;
+      padding: 0;
     }
   }
 
@@ -39,27 +43,31 @@
     @include tablet {
       width: 16.2rem;
       height: 3rem;
-      margin: 4.8rem 0 3.6rem 0;
-      justify-content: space-between;
+      // margin: 4.8rem 0 3.6rem 0;
+      justify-content: flex-start;
+      width: 33%;
     }
   }
 
-  // &__image {
-  //   @include tablet {
-  //     height: 1rem;
-  //   }
+  &__img {
+    @include tablet {
+      margin-right: 3.6rem;
+    }
+  }
 }
 
 .contact {
   @include tablet {
     display: flex;
+    justify-content: space-between;
   }
   &__details {
     margin: 2.4rem 0;
     @include copy-mobile;
 
     @include tablet {
-      margin-right: 4rem;
+      width: 33%;
+      margin-top: 0;
     }
   }
 
@@ -70,6 +78,10 @@
     &--bold {
       font-weight: 600;
     }
+
+    @include tablet {
+      @include footer-copy-desktop;
+    }
   }
 
   &__wrapper {
@@ -77,22 +89,36 @@
   }
 }
 
+.logo {
+  @include tablet {
+    width: 33%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
 .logo__top {
-  visibility: hidden;
+  display: none;
 
   @include tablet {
-    visibility: visible;
+    display: inline;
+    height: 2rem;
   }
 }
 
 .logo__bottom {
   margin: 3.2rem 0 1.6rem 0;
+  display: inline;
 
   @include tablet {
-    visibility: hidden;
+    display: none;
   }
 }
 
 .copyright {
   font-size: 1rem;
+
+  @include tablet {
+    padding: 2.4rem 0 3.6rem 0;
+    @include footer-copy-desktop;
+  }
 }

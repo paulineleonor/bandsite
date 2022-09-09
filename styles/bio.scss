@@ -23,7 +23,7 @@
     position: absolute;
     width: 100%;
     height: 25rem;
-    background-color: rgba(50, 50, 50, 0.5);
+    background-color: rgba($brand-primary-1, 0.5);
 
     @include tablet {
       height: 55vh;
@@ -45,16 +45,16 @@
 .about {
   // padding: 0 1.6rem;
 
-  // &__title {
-  //   @include header-mobile;
-  //   margin: 2.4rem 0 1.6rem 1.6rem;
+  &__title {
+    // @include header-mobile;
+    margin-left: 2.4rem;
 
-  //   @include tablet {
-  //     @include section-header-desktop;
-  //     margin: 4.8rem 0 3.6rem 3.6rem;
-  //     font-weight: 600;
-  //   }
-  // }
+    @include tablet {
+      // @include section-header-desktop;
+      margin: 4.8rem 0 3.6rem 3.6rem;
+      // font-weight: 600;
+    }
+  }
 
   &__wrapper {
     padding: 0 1.6rem;
@@ -72,11 +72,29 @@
   &__quote {
     @include subheader-mobile;
     font-weight: 600;
+
+    @include tablet {
+      font-size: 2.3rem;
+      font-weight: 600;
+      color: $brand-primary-1;
+      line-height: 3rem;
+    }
+
+    &--size {
+      @include tablet {
+        font-size: 1.7rem;
+        margin: 1.4rem 0 4.8rem 0;
+      }
+    }
   }
 
   &__subtitle {
     @include copy-mobile;
     margin: 2.4rem 0 1.6rem 0;
+
+    @include tablet {
+      @include header-mobile;
+    }
   }
 
   &__copy {
@@ -94,6 +112,10 @@
     }
     &--left {
       margin-right: 2.4rem;
+    }
+
+    @include tablet {
+      @include body-copy-desktop;
     }
   }
 }
@@ -116,7 +138,8 @@
 
     @include tablet {
       flex-direction: row;
-      width: 100%;
+      // width: 100%;
+      margin: 0 2.4rem 2.4rem 2.4rem;
       flex-wrap: wrap;
       // align-items: center;
       // justify-content: ;
@@ -129,7 +152,7 @@
     padding: 0.8rem 0;
 
     @include tablet {
-      width: 30%;
+      width: 33%;
       // margin-bottom: 3.6rem;
       padding: 1.2rem 1.2rem;
 
@@ -138,6 +161,12 @@
       // &:nth-child(8) {
       //   margin: 0 3.6rem 3.6rem;
       // }
+    }
+  }
+
+  &__title {
+    @include tablet {
+      padding: 4.8rem 0 2.4rem 3.6rem;
     }
   }
 }
