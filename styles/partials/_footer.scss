@@ -4,22 +4,27 @@
 @use "./mixins" as *;
 
 .footer {
-  padding: 0 1.6rem 1.6rem 1.6rem;
-  background-color: $brand-primary-1;
+  padding: 0 $standard-spacing-mobile $standard-spacing-mobile
+    $standard-spacing-mobile;
   color: white;
 
   @include tablet {
-    padding: 4.8rem 3.6rem 0 3.6rem;
+    padding: $heading-top-desktop $standard-spacing-desktop 0
+      $standard-spacing-desktop;
+  }
+
+  @include desktop {
+    width: $desktop-max-width;
+    margin: 0 auto;
   }
 }
 
 .social {
   align-items: center;
+
   @include tablet {
-    display: flex;
     justify-content: space-between;
-    margin-bottom: 3.6rem;
-    // align-items: flex-end;
+    margin-bottom: $standard-spacing-desktop;
   }
 
   &__title {
@@ -41,9 +46,7 @@
     justify-content: space-between;
 
     @include tablet {
-      width: 16.2rem;
       height: 3rem;
-      // margin: 4.8rem 0 3.6rem 0;
       justify-content: flex-start;
       width: 33%;
     }
@@ -51,19 +54,18 @@
 
   &__img {
     @include tablet {
-      margin-right: 3.6rem;
+      margin-right: $gutters-desktop;
     }
   }
 }
 
 .contact {
   @include tablet {
-    display: flex;
+    // display: flex;
     justify-content: space-between;
   }
   &__details {
     margin: 2.4rem 0;
-    @include copy-mobile;
 
     @include tablet {
       width: 33%;
@@ -80,37 +82,38 @@
     }
 
     @include tablet {
-      @include footer-copy-desktop;
+      line-height: 2rem;
     }
   }
 
   &__wrapper {
-    margin: 1.6rem 0;
+    margin: $standard-spacing-mobile 0;
   }
 }
 
 .logo {
   @include tablet {
-    width: 33%;
     display: flex;
+    width: 33%;
     justify-content: flex-end;
   }
-}
-.logo__top {
-  display: none;
 
-  @include tablet {
-    display: inline;
-    height: 2rem;
-  }
-}
-
-.logo__bottom {
-  margin: 3.2rem 0 1.6rem 0;
-  display: inline;
-
-  @include tablet {
+  &__top {
     display: none;
+
+    @include tablet {
+      display: inline;
+      height: 2rem;
+    }
+  }
+
+  &__bottom {
+    margin: 3.6rem 0 $standard-spacing-mobile 0;
+    display: inline;
+
+    @include tablet {
+      display: none;
+    }
   }
 }
 
@@ -118,7 +121,7 @@
   font-size: 1rem;
 
   @include tablet {
-    padding: 2.4rem 0 3.6rem 0;
-    @include footer-copy-desktop;
+    padding: $gutters-desktop 0 $standard-spacing-desktop 0;
+    font-size: 1.4rem;
   }
 }

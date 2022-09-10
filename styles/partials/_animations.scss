@@ -1,0 +1,29 @@
+@use "./variables" as *;
+
+@keyframes border-change {
+  from {
+    border-color: white;
+    color: white;
+  }
+  to {
+    border-color: #8e2c43;
+    color: $brand-primary-2;
+  }
+}
+
+.nav {
+  &__item {
+    &--active {
+      &:hover {
+        animation: border-change 3s;
+        animation-timing-function: ease;
+      }
+    }
+  }
+}
+
+.nav__link {
+  :hover {
+    width: 100%;
+  }
+}
