@@ -1,18 +1,18 @@
 @font-face {
   font-family: "AvenirNext";
-  src: url("../../assets/font/AvenirNextLTPro-Bold.otf") format("opentype"), url("../../assets/font/alternative-files/AvenirNextLTProBold.ttf") format("truetype");
+  src: url("../assets/font/AvenirNextLTPro-Bold.otf") format("opentype"), url("../assets/font/alternative-files/AvenirNextLTProBold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "AvenirNext";
-  src: url("../../assets/font/AvenirNextLTPro-Demi.otf") format("opentype"), url("../../assets/font/alternative-files/AvenirNextLTProDemi.ttf") format("truetype");
+  src: url("../assets/font/AvenirNextLTPro-Demi.otf") format("opentype"), url("../assets/font/alternative-files/AvenirNextLTProDemi.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: "AvenirNext";
-  src: url("../../assets/font/AvenirNextLTPro-Regular.otf") format("opentype"), url("../../assets/font/alternative-files/AvenirNextLTPro.ttf") format("truetype");
+  src: url("../assets/font/AvenirNextLTPro-Regular.otf") format("opentype"), url("../assets/font/alternative-files/AvenirNextLTPro.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -98,23 +98,18 @@ p,
   background-color: #323232;
 }
 
-@keyframes border-change {
-  from {
-    border-color: white;
-    color: white;
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem);
   }
-  to {
-    border-color: #8e2c43;
-    color: #afafaf;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-.nav__item--active:hover {
-  animation: border-change 3s;
-  animation-timing-function: ease;
-}
-
-.nav__link :hover {
-  width: 100%;
+.nav__link:hover {
+  animation: slide-down 2s;
 }
 
 .header {
@@ -187,6 +182,8 @@ p,
   width: 100%;
   align-items: center;
   justify-content: center;
+  border-bottom: 4px solid #323232;
+  transition: border-color 1s;
 }
 @media screen and (min-width: 768px) {
   .nav__item {
@@ -197,8 +194,14 @@ p,
 .nav__item--active {
   font-weight: bold;
   color: white;
-  border-bottom: 4px solid white;
-  font-weight: bold;
+  border-color: white;
+  font-weight: 600;
+}
+.nav__item--active:hover {
+  font-weight: normal;
+}
+.nav__item:hover {
+  border-color: white;
 }
 
 .footer {
@@ -465,6 +468,7 @@ p,
   width: 100%;
   padding: 0.8rem 0;
   filter: grayscale(1);
+  transition: filter 2s;
 }
 .gallery__img:hover {
   filter: none;

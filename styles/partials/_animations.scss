@@ -1,29 +1,16 @@
-@use "./variables" as *;
-
-@keyframes border-change {
-  from {
-    border-color: white;
-    color: white;
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem);
   }
-  to {
-    border-color: #8e2c43;
-    color: $brand-primary-2;
-  }
-}
-
-.nav {
-  &__item {
-    &--active {
-      &:hover {
-        animation: border-change 3s;
-        animation-timing-function: ease;
-      }
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .nav__link {
-  :hover {
-    width: 100%;
+  &:hover {
+    animation: slide-down 2s;
   }
 }

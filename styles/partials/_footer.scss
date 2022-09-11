@@ -61,7 +61,6 @@
 
 .contact {
   @include tablet {
-    // display: flex;
     justify-content: space-between;
   }
   &__details {

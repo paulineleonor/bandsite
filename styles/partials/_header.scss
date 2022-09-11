@@ -70,9 +70,10 @@
   &__item {
     padding: 0.8rem 3.6rem;
     width: 100%;
-
     align-items: center;
     justify-content: center;
+    border-bottom: 4px solid $brand-primary-1;
+    transition: border-color 1s;
 
     @include tablet {
       width: auto;
@@ -82,8 +83,16 @@
     &--active {
       font-weight: bold;
       color: white;
-      border-bottom: 4px solid white;
-      font-weight: bold;
+      border-color: white;
+      font-weight: 600;
+
+      &:hover {
+        font-weight: normal;
+      }
+    }
+
+    &:hover {
+      border-color: white;
     }
   }
 }
