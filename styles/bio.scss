@@ -54,6 +54,10 @@
 
   &__title {
     margin-left: 1.6rem;
+
+    @include tablet {
+      margin-left: 0;
+    }
   }
 
   &__img {
@@ -106,7 +110,9 @@
       line-height: 2.2rem;
     }
     &--left {
-      margin-right: 2.4rem;
+      @include tablet {
+        margin-right: $gutters-desktop;
+      }
     }
   }
 }

@@ -375,6 +375,11 @@ p,
 .about__title {
   margin-left: 1.6rem;
 }
+@media screen and (min-width: 768px) {
+  .about__title {
+    margin-left: 0;
+  }
+}
 .about__img {
   width: 100%;
   padding-bottom: 1.6rem;
@@ -428,8 +433,10 @@ p,
     line-height: 2.2rem;
   }
 }
-.about__text--left {
-  margin-right: 2.4rem;
+@media screen and (min-width: 768px) {
+  .about__text--left {
+    margin-right: 2.4rem;
+  }
 }
 
 .gallery {
