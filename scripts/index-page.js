@@ -45,7 +45,7 @@ function displayComment(array) {
     commentsCopy.appendChild(commentsNameDate);
     let commentsName = document.createElement("p");
     commentsName.classList.add("comment__name");
-    commentsName.innerText = comments[i].name;
+    commentsName.innerText = array[i].name;
     commentsNameDate.appendChild(commentsName);
     let commentsDate = document.createElement("p");
     commentsNameDate.appendChild(commentsDate);

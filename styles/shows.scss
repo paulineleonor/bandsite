@@ -1,0 +1,58 @@
+@use "./partials/resets";
+@use "./partials/typography";
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+@use "./partials/header";
+@use "./partials/footer";
+
+.hero {
+  background-image: url("../assets/images/hero-bio.jpg");
+  height: 25rem;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  align-items: center;
+
+  @include tablet {
+    height: 55vh;
+  }
+
+  @include desktop {
+    height: 90vh;
+  }
+
+  &__wrapper {
+    @include desktop {
+      width: $desktop-max-width;
+      margin: 0 auto;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    background-color: rgba($brand-primary-1, 0.5);
+  }
+}
+
+.shows {
+  &__headings {
+    display: none;
+  }
+}
+
+.show {
+  &__label {
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: $brand-primary-2;
+    font-weight: 600;
+  }
+
+  &__date {
+    font-weight: 600;
+  }
+}
