@@ -47,6 +47,7 @@ showsDetails.classList.add("shows__details");
 showsSection.appendChild(showsDetails);
 
 let showsHeadings = document.createElement("div");
+
 showsHeadings.classList.add("shows__headings");
 showsDetails.appendChild(showsHeadings);
 let showsHeadingDate = document.createElement("h3");
@@ -62,40 +63,49 @@ showsHeadingLocation.classList.add("shows__heading");
 showsHeadings.appendChild(showsHeadingLocation);
 showsHeadingLocation.innerText = "Location";
 
-function displayShows(array) {
+const displayShows = (array) => {
   for (let i = 0; i < array.length; i++) {
-    let show = document.createElement("article");
-    show.classList.add("show");
-    showsDetails.appendChild(show);
-    let dateLabel = document.createElement("h3");
-    dateLabel.classList.add("show__label");
-    show.appendChild(dateLabel);
-    dateLabel.innerText = Object.keys(array[0])[0];
-    let showDate = document.createElement("p");
-    showDate.classList.add("show__date");
-    show.appendChild(showDate);
-    showDate.innerText = array[i].date;
-    let venueLabel = document.createElement("h3");
-    venueLabel.classList.add("show__label");
-    show.appendChild(venueLabel);
-    venueLabel.innerText = Object.keys(array[0])[1];
-    let showVenue = document.createElement("p");
-    showVenue.classList.add("show__venue");
-    show.appendChild(showVenue);
-    showVenue.innerText = array[i].venue;
-    let locationLabel = document.createElement("h3");
-    locationLabel.classList.add("show__label");
-    show.appendChild(locationLabel);
-    locationLabel.innerText = Object.keys(array[0])[2];
-    let showLocation = document.createElement("p");
-    showLocation.classList.add("show__location");
-    show.appendChild(showLocation);
-    showLocation.innerText = array[i].location;
-    let buyButton = document.createElement("a");
-    buyButton.classList.add("show__button");
-    show.appendChild(buyButton);
-    buyButton.innerText = "Buy tickets";
+    displayShow(array[i]);
   }
-}
+};
+
+const displayShow = (shows) => {
+  let show = document.createElement("article");
+  show.classList.add("show");
+  showsDetails.appendChild(show);
+  let dateLabel = document.createElement("h3");
+  dateLabel.classList.add("show__label");
+  show.appendChild(dateLabel);
+  dateLabel.innerText = Object.keys(shows)[0];
+  let showDate = document.createElement("p");
+  showDate.classList.add("show__info");
+  showDate.classList.add("show__info--bold");
+  show.appendChild(showDate);
+  showDate.innerText = shows.date;
+  let venueLabel = document.createElement("h3");
+  venueLabel.classList.add("show__label");
+  show.appendChild(venueLabel);
+  venueLabel.innerText = Object.keys(shows)[1];
+  let showVenue = document.createElement("p");
+  showVenue.classList.add("show__info");
+  show.appendChild(showVenue);
+  showVenue.innerText = shows.venue;
+  let locationLabel = document.createElement("h3");
+  locationLabel.classList.add("show__label");
+  show.appendChild(locationLabel);
+  locationLabel.innerText = Object.keys(shows)[2];
+  let showLocation = document.createElement("p");
+  showLocation.classList.add("show__info");
+  show.appendChild(showLocation);
+  showLocation.innerText = shows.location;
+
+  let buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("show__button");
+  show.appendChild(buttonContainer);
+  let buyButton = document.createElement("a");
+  buyButton.classList.add("show__link");
+  buttonContainer.appendChild(buyButton);
+  buyButton.innerText = "Buy tickets";
+};
 
 displayShows(shows);

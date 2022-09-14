@@ -39,20 +39,110 @@
 }
 
 .shows {
+  padding: 0 1.6rem;
+
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__headings {
     display: none;
+    width: 75%;
+
+    @include tablet {
+      display: flex;
+      padding: 1.6rem;
+    }
+  }
+
+  &__heading {
+    width: 34%;
+    text-transform: uppercase;
+    color: $brand-primary-2;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  &__details {
+    @include desktop {
+      width: 100%;
+      padding-top: 4.8rem;
+    }
+  }
+
+  &__container {
+    @include desktop {
+      width: $desktop-max-width;
+      margin: 0 auto;
+    }
   }
 }
 
 .show {
+  border-bottom: 1px solid $brand-secondary-2;
+
+  @include tablet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.6rem;
+    width: 100%;
+  }
+
   &__label {
     text-transform: uppercase;
     font-size: 1rem;
     color: $brand-primary-2;
     font-weight: 600;
+    margin: 1.6rem 0 0.8rem 0;
+
+    @include tablet {
+      display: none;
+    }
   }
 
-  &__date {
+  &__info {
+    @include tablet {
+      width: 25%;
+    }
+
+    &--bold {
+      font-weight: 600;
+    }
+  }
+
+  &__button {
+    text-transform: uppercase;
     font-weight: 600;
+    color: white;
+    // background-color: $brand-primary-1;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    height: 4rem;
+    align-items: center;
+    margin: 2.4rem 0 1.6rem 0;
+
+    @include tablet {
+      margin: 0;
+      width: 25%;
+    }
+  }
+
+  &__link {
+    background-color: $brand-primary-1;
+    border-radius: 4px;
+    height: 4rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-width: 1rem;
+    width: 100%;
+    @include tablet {
+      width: auto;
+      padding: 0 3.2rem;
+    }
   }
 }

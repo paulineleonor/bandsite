@@ -26,7 +26,7 @@ let comments = [
 // commentsCopy.innerText = comments.name + comments.message + comments.date;
 // commentsSection.appendChild(commentsCopy);
 
-function displayComment(array) {
+const displayComment = (array) => {
   for (let i = 0; i < array.length; i++) {
     let comment = document.createElement("article");
     comment.classList.add("comment");
@@ -56,7 +56,7 @@ function displayComment(array) {
     commentsText.classList.add("comment__text");
     commentsText.innerText = comments[i].message;
   }
-}
+};
 
 displayComment(comments);
 
