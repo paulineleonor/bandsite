@@ -185,11 +185,27 @@
   }
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
 .comment {
   display: flex;
   width: 100%;
   border-bottom: 1px solid $brand-secondary-2;
   padding: $standard-spacing-mobile 0;
+
+  &__form {
+    display: flex;
+  }
+
+  &__photo {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 1.6rem;
+  }
 
   &__img {
     height: 40px;
@@ -212,5 +228,32 @@
 
   &__date {
     color: $brand-primary-2;
+  }
+
+  &__form {
+    border-bottom: 1px solid $brand-secondary-2;
+  }
+}
+
+.form {
+  &__container {
+    width: 100%;
+  }
+
+  &__label {
+    text-transform: uppercase;
+    color: $brand-primary-2;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  &__label {
+    margin-bottom: 0.8rem;
+  }
+  &__input {
+    margin-bottom: 1.6rem;
+    border: 1px solid $brand-secondary-2;
+    border-radius: 4px;
+    background-color: $brand-secondary-3;
   }
 }
