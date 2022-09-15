@@ -233,9 +233,14 @@
   &__form {
     border-bottom: 1px solid $brand-secondary-2;
   }
+
+  &__wrapper {
+    width: 100%;
+  }
 }
 
 .form {
+  padding-bottom: 1.6rem;
   &__container {
     width: 100%;
   }
@@ -255,5 +260,21 @@
     border: 1px solid $brand-secondary-2;
     border-radius: 4px;
     background-color: $brand-secondary-3;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__button {
+    background-color: $brand-primary-1;
+    color: white;
+    border: none;
+    padding: 0 3.2rem;
+    height: 4rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
   }
 }

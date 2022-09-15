@@ -400,6 +400,15 @@ p,
 .show {
   border-bottom: 1px solid #e1e1e1;
 }
+.show:hover {
+  background-color: #fafafa;
+}
+.show--active {
+  background-color: #e1e1e1;
+}
+.show--active:hover {
+  background-color: #e1e1e1;
+}
 @media screen and (min-width: 768px) {
   .show {
     display: flex;

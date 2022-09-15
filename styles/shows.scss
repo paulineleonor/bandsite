@@ -82,6 +82,18 @@
 .show {
   border-bottom: 1px solid $brand-secondary-2;
 
+  &:hover {
+    background-color: $brand-secondary-3;
+  }
+
+  &--active {
+    background-color: $brand-secondary-2;
+
+    &:hover {
+      background-color: $brand-secondary-2;
+    }
+  }
+
   @include tablet {
     display: flex;
     align-items: center;

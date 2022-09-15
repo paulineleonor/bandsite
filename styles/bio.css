@@ -552,7 +552,13 @@ p,
 .comment__form {
   border-bottom: 1px solid #e1e1e1;
 }
+.comment__wrapper {
+  width: 100%;
+}
 
+.form {
+  padding-bottom: 1.6rem;
+}
 .form__container {
   width: 100%;
 }
@@ -570,4 +576,18 @@ p,
   border: 1px solid #e1e1e1;
   border-radius: 4px;
   background-color: #fafafa;
+}
+.form__wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.form__button {
+  background-color: #323232;
+  color: white;
+  border: none;
+  padding: 0 3.2rem;
+  height: 4rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
 }/*# sourceMappingURL=bio.css.map */

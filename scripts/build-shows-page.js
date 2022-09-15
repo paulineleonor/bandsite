@@ -38,30 +38,41 @@ showsTitle.classList.add("shows__title");
 showsSection.appendChild(showsTitle);
 showsTitle.innerText = "Shows";
 
-// let showsTable = document.createElement("table");
-// showsTable.classList.add("shows__table");
-// showsSection.appendChild(showsTable);
-
 let showsDetails = document.createElement("section");
 showsDetails.classList.add("shows__details");
 showsSection.appendChild(showsDetails);
 
 let showsHeadings = document.createElement("div");
-
 showsHeadings.classList.add("shows__headings");
 showsDetails.appendChild(showsHeadings);
-let showsHeadingDate = document.createElement("h3");
-showsHeadingDate.classList.add("shows__heading");
-showsHeadings.appendChild(showsHeadingDate);
-showsHeadingDate.innerText = "Date";
-let showsHeadingVenue = document.createElement("h3");
-showsHeadingVenue.classList.add("shows__heading");
-showsHeadings.appendChild(showsHeadingVenue);
-showsHeadingVenue.innerText = "Venue";
-let showsHeadingLocation = document.createElement("h3");
-showsHeadingLocation.classList.add("shows__heading");
-showsHeadings.appendChild(showsHeadingLocation);
-showsHeadingLocation.innerText = "Location";
+
+let showKeys = ["date", "venue", "location"];
+
+const buildHeadings = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    let header = document.createElement("h3");
+    header.classList.add("show__heading");
+    showsHeadings.appendChild(header);
+    header.innerText = array[i];
+  }
+};
+
+buildHeadings(showKeys);
+
+// let showsHeadingDate = document.createElement("h3");
+// showsHeadingDate.classList.add("shows__heading");
+// showsHeadings.appendChild(showsHeadingDate);
+// showsHeadingDate.innerText = "Date";
+
+// let showsHeadingVenue = document.createElement("h3");
+// showsHeadingVenue.classList.add("shows__heading");
+// showsHeadings.appendChild(showsHeadingVenue);
+// showsHeadingVenue.innerText = "Venue";
+
+// let showsHeadingLocation = document.createElement("h3");
+// showsHeadingLocation.classList.add("shows__heading");
+// showsHeadings.appendChild(showsHeadingLocation);
+// showsHeadingLocation.innerText = "Location";
 
 const displayShows = (array) => {
   for (let i = 0; i < array.length; i++) {
@@ -106,6 +117,27 @@ const displayShow = (shows) => {
   buyButton.classList.add("show__link");
   buttonContainer.appendChild(buyButton);
   buyButton.innerText = "Buy tickets";
+
+  // show.addEventListener("click", function () {
+  //   show.classList.toggle("show--active");
+  // });
 };
 
 displayShows(shows);
+
+// let tableRow = document.querySelector(".show");
+
+// tableRow.addEventListener("click", function () {
+//   tableRow.classList.toggle("show--active");
+// });
+
+const showsList = document.querySelectorAll(".show");
+
+for (let i = 0; i < showsList.length; i++) {
+  showsList[i].addEventListener("click", () => {
+    for (let i = 0; i < showsList.length; i++) {
+      showsList[i].classList.remove("show--active");
+    }
+    showsList[i].classList.toggle("show--active");
+  });
+}

@@ -1,7 +1,5 @@
 let commentsSection = document.querySelector(".comments");
 
-// let commentsCopy = document.createElement("p");
-
 let comments = [
   {
     name: "Connor Walton",
@@ -23,41 +21,67 @@ let comments = [
   },
 ];
 
-// commentsCopy.innerText = comments.name + comments.message + comments.date;
-// commentsSection.appendChild(commentsCopy);
-
-const displayComment = (array) => {
+const displayComments = (array) => {
+  commentsSection.innerHTML = "";
   for (let i = 0; i < array.length; i++) {
-    let comment = document.createElement("article");
-    comment.classList.add("comment");
-    commentsSection.appendChild(comment);
-    let imgContainer = document.createElement("section");
-    imgContainer.classList.add("comment__icons");
-    comment.appendChild(imgContainer);
-    let commentsImg = document.createElement("div");
-    commentsImg.classList.add("comment__img");
-    imgContainer.appendChild(commentsImg);
-    let commentsCopy = document.createElement("div");
-    commentsCopy.classList.add("comment__wrapper");
-    comment.appendChild(commentsCopy);
-    let commentsNameDate = document.createElement("section");
-    commentsNameDate.classList.add("comment__user");
-    commentsCopy.appendChild(commentsNameDate);
-    let commentsName = document.createElement("p");
-    commentsName.classList.add("comment__name");
-    commentsName.innerText = array[i].name;
-    commentsNameDate.appendChild(commentsName);
-    let commentsDate = document.createElement("p");
-    commentsNameDate.appendChild(commentsDate);
-    commentsDate.classList.add("comment__date");
-    commentsDate.innerText = comments[i].date;
-    let commentsText = document.createElement("p");
-    commentsCopy.appendChild(commentsText);
-    commentsText.classList.add("comment__text");
-    commentsText.innerText = comments[i].message;
+    displayComment(array[i]);
   }
 };
 
-displayComment(comments);
+const displayComment = (comment) => {
+  let commentBlock = document.createElement("article");
+  commentBlock.classList.add("comment");
+  commentsSection.appendChild(commentBlock);
+  let imgContainer = document.createElement("section");
+  imgContainer.classList.add("comment__icons");
+  commentBlock.appendChild(imgContainer);
 
-// Object.keys(array[0])[0]
+  let commentsImg = document.createElement("div");
+  commentsImg.classList.add("comment__img");
+  imgContainer.appendChild(commentsImg);
+
+  let commentsCopy = document.createElement("div");
+  commentsCopy.classList.add("comment__wrapper");
+  commentBlock.appendChild(commentsCopy);
+
+  let commentsNameDate = document.createElement("section");
+  commentsNameDate.classList.add("comment__user");
+  commentsCopy.appendChild(commentsNameDate);
+
+  let commentsName = document.createElement("p");
+  commentsName.classList.add("comment__name");
+  commentsName.innerText = comment.name;
+  commentsNameDate.appendChild(commentsName);
+
+  let commentsDate = document.createElement("p");
+  commentsNameDate.appendChild(commentsDate);
+  commentsDate.classList.add("comment__date");
+  commentsDate.innerText = comment.date;
+  let commentsText = document.createElement("p");
+  commentsCopy.appendChild(commentsText);
+  commentsText.classList.add("comment__text");
+  commentsText.innerText = comment.message;
+};
+
+displayComments(comments);
+
+const form = document.querySelector(".form");
+
+const addNewComment = (event) => {
+  event.preventDefault();
+  console.log(event.target);
+
+  const name = event.target.name.value;
+  const message = event.target.comment.value;
+
+  const newComment = {
+    name: name,
+    message: message,
+    date: new Date().toLocaleDateString(),
+  };
+
+  comments.unshift(newComment);
+  displayComments(comments);
+};
+
+form.addEventListener("submit", addNewComment);
