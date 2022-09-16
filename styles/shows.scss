@@ -6,7 +6,7 @@
 @use "./partials/footer";
 
 .hero {
-  background-image: url("../assets/images/hero-bio.jpg");
+  background-image: url("../assets/images/hero-shows.jpg");
   height: 25rem;
   width: 100%;
   background-repeat: no-repeat;
@@ -36,6 +36,10 @@
     height: inherit;
     background-color: rgba($brand-primary-1, 0.5);
   }
+
+  &__iframe {
+    position: relative;
+  }
 }
 
 .shows {
@@ -48,7 +52,7 @@
 
   &__headings {
     display: none;
-    width: 75%;
+    width: 100%;
 
     @include tablet {
       display: flex;
@@ -77,6 +81,9 @@
       margin: 0 auto;
     }
   }
+
+  // &__title {
+  // }
 }
 
 .show {

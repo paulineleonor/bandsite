@@ -326,7 +326,7 @@ p,
 }
 
 .hero {
-  background-image: url("../assets/images/hero-bio.jpg");
+  background-image: url("../assets/images/hero-shows.jpg");
   height: 25rem;
   width: 100%;
   background-repeat: no-repeat;
@@ -357,6 +357,9 @@ p,
   height: inherit;
   background-color: rgba(50, 50, 50, 0.5);
 }
+.hero__iframe {
+  position: relative;
+}
 
 .shows {
   padding: 0 1.6rem;
@@ -369,7 +372,7 @@ p,
 }
 .shows__headings {
   display: none;
-  width: 75%;
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   .shows__headings {

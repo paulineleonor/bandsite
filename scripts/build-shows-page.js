@@ -46,14 +46,14 @@ let showsHeadings = document.createElement("div");
 showsHeadings.classList.add("shows__headings");
 showsDetails.appendChild(showsHeadings);
 
-let showKeys = ["date", "venue", "location"];
+let showKeys = ["date", "venue", "location", ""];
 
 const buildHeadings = (array) => {
   for (let i = 0; i < array.length; i++) {
-    let header = document.createElement("h3");
-    header.classList.add("show__heading");
-    showsHeadings.appendChild(header);
-    header.innerText = array[i];
+    let headerEl = document.createElement("h3");
+    headerEl.classList.add("shows__heading");
+    showsHeadings.appendChild(headerEl);
+    headerEl.innerText = array[i];
   }
 };
 
@@ -133,11 +133,15 @@ displayShows(shows);
 
 const showsList = document.querySelectorAll(".show");
 
-for (let i = 0; i < showsList.length; i++) {
-  showsList[i].addEventListener("click", () => {
-    for (let i = 0; i < showsList.length; i++) {
-      showsList[i].classList.remove("show--active");
-    }
-    showsList[i].classList.toggle("show--active");
-  });
-}
+const selectShow = (array) => {
+  for (let i = 0; i < showsList.length; i++) {
+    showsList[i].addEventListener("click", () => {
+      for (let i = 0; i < showsList.length; i++) {
+        showsList[i].classList.remove("show--active");
+      }
+      showsList[i].classList.toggle("show--active");
+    });
+  }
+};
+
+selectShow(showsList);

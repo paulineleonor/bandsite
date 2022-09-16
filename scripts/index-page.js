@@ -74,6 +74,30 @@ const addNewComment = (event) => {
   const name = event.target.name.value;
   const message = event.target.comment.value;
 
+  const nameInputEl = document.getElementById("name");
+  const messageInputEl = document.getElementById("comment");
+
+  nameInputEl.classList.remove("form__input--error");
+  messageInputEl.classList.remove("form__input--error");
+
+  if (message === "" && name === "") {
+    nameInputEl.classList.add("form__input--error");
+    messageInputEl.classList.add("form__input--error");
+    return;
+  }
+
+  if (name === "") {
+    nameInputEl.classList.add("form__input--error");
+    return;
+  }
+
+  if (message === "") {
+    messageInputEl.classList.add("form__input--error");
+    return;
+  }
+
+  nameInputEl.classList.remove("form__input--error");
+  messageInputEl.classList.remove("form__input--error");
   const newComment = {
     name: name,
     message: message,
@@ -82,6 +106,9 @@ const addNewComment = (event) => {
 
   comments.unshift(newComment);
   displayComments(comments);
+
+  event.target.name.value = "";
+  event.target.comment.value = "";
 };
 
 form.addEventListener("submit", addNewComment);
