@@ -1,5 +1,15 @@
 let commentsSection = document.querySelector(".comments");
 
+// // Establish current date
+// const currentDate = new Date();
+
+// const currentSecond = currentDate.getSeconds();
+// const currentMinute = currentDate.getMinutes();
+// const currentHour = currentDate.getHours();
+// const currentDayOfMonth = currentDate.getDate();
+// const currentMonth = currentDate.getMonth() + 1;
+// const currentYear = currentDate.getFullYear();
+
 let comments = [
   {
     name: "Connor Walton",
@@ -65,11 +75,11 @@ const displayComment = (comment) => {
 
 displayComments(comments);
 
+// Create new comment
 const form = document.querySelector(".form");
 
 const addNewComment = (event) => {
   event.preventDefault();
-  console.log(event.target);
 
   const name = event.target.name.value;
   const message = event.target.comment.value;
@@ -112,3 +122,15 @@ const addNewComment = (event) => {
 };
 
 form.addEventListener("submit", addNewComment);
+
+// const dynamicTimestamp = () => {
+//   const currentDate = new Date();
+
+//   const currentMinute = currentDate.getMinutes();
+//   const currentHour = currentDate.getHours();
+//   const currentDayOfMonth = currentDate.getDate();
+//   const currentMonth = currentDate.getMonth() + 1;
+//   const currentYear = currentDate.getFullYear();
+// };
+
+// dynamicTimestamp();

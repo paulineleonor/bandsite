@@ -170,7 +170,7 @@ p,
 .nav__link {
   text-decoration: none;
   color: #e1e1e1;
-  padding-bottom: 2rem;
+  padding-bottom: 0.8rem;
 }
 @media screen and (min-width: 768px) {
   .nav__link {
@@ -372,12 +372,9 @@ p,
     padding: 0 8rem;
   }
 }
-.about__title {
-  margin-left: 1.6rem;
-}
 @media screen and (min-width: 768px) {
   .about__title {
-    margin-left: 0;
+    padding-left: 0;
   }
 }
 .about__img {
@@ -505,7 +502,7 @@ p,
 }
 @media screen and (min-width: 1279px) {
   .comments {
-    max-width: 40%;
+    max-width: 50%;
     margin: 0 auto;
     padding: 0;
   }
@@ -513,30 +510,41 @@ p,
 
 .conversation {
   width: 100%;
-  border-bottom: 1px solid #e1e1e1;
-  padding: 1.6rem 0;
+  padding-bottom: 1.6rem;
+}
+@media screen and (min-width: 768px) {
+  .conversation {
+    padding-bottom: 3.6rem;
+  }
 }
 @media screen and (min-width: 1279px) {
   .conversation {
-    width: 40%;
+    width: 1020px;
     margin: 0 auto;
   }
 }
 .conversation__wrapper {
+  display: flex;
   border-bottom: 1px solid #e1e1e1;
+  margin: 0 1.6rem;
+}
+@media screen and (min-width: 768px) {
+  .conversation__wrapper {
+    margin: 0 8rem;
+  }
 }
 @media screen and (min-width: 1279px) {
   .conversation__wrapper {
-    width: 40%;
+    width: 50%;
     margin: 0 auto;
   }
 }
 .conversation__title {
-  padding-bottom: 0.8rem;
+  margin-left: 1.6rem;
 }
 @media screen and (min-width: 768px) {
   .conversation__title {
-    padding-bottom: 2.4rem;
+    margin-left: 0;
   }
 }
 .conversation__icon {
@@ -545,6 +553,7 @@ p,
   padding: 1.6rem 1rem 0 0;
 }
 .conversation__photo {
+  margin-top: 0.8rem;
   width: 4.8rem;
   height: 4.8rem;
   background-image: url("../assets/images/Mohan-muruge.jpg");
@@ -558,6 +567,11 @@ p,
   width: 100%;
   border-bottom: 1px solid #e1e1e1;
   padding: 1.6rem 0;
+}
+@media screen and (min-width: 768px) {
+  .comment {
+    padding: 2.4rem 0;
+  }
 }
 .comment__img {
   height: 4.8rem;
@@ -578,21 +592,24 @@ p,
 .comment__date {
   color: #afafaf;
 }
-.comment__form {
-  border-bottom: 1px solid #e1e1e1;
+@media screen and (min-width: 768px) {
+  .comment__text {
+    line-height: 2.4rem;
+  }
 }
 .comment__wrapper {
   width: 100%;
-}
-
-.conversation__wrapper {
-  display: flex;
 }
 
 .form {
   padding-bottom: 1.6rem;
   display: flex;
   flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .form {
+    padding-bottom: 2.4rem;
+  }
 }
 .form__container {
   width: 100%;
@@ -602,9 +619,12 @@ p,
   color: #afafaf;
   font-size: 1rem;
   font-weight: 600;
+  margin-bottom: 0.4rem;
 }
-.form__label {
-  margin-bottom: 0.8rem;
+@media screen and (min-width: 768px) {
+  .form__label {
+    font-size: 1.4rem;
+  }
 }
 .form__input {
   all: unset;
@@ -612,17 +632,33 @@ p,
   border: 1px solid #e1e1e1;
   border-radius: 4px;
   background-color: #fafafa;
-  padding: 1.5rem;
+  padding: 1.2rem;
+}
+.form__input:focus {
+  border: 1px solid #323232;
 }
 .form__input::placeholder {
-  color: black;
+  color: #323232;
 }
 .form__input--error {
   border-color: #d22d2d;
 }
-.form__wrapper {
-  display: flex;
-  justify-content: flex-end;
+@media screen and (min-width: 768px) {
+  .form__input {
+    margin-bottom: 2.4rem;
+    padding: 1.6rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .form__input--height {
+    height: 8rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .form__wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 .form__button {
   background-color: #323232;
@@ -633,4 +669,15 @@ p,
   border-radius: 4px;
   text-transform: uppercase;
   font-weight: 600;
+  width: 100%;
+  transition: background-color 1s;
+  font-size: 1.5rem;
+}
+.form__button:hover {
+  background-color: #000000;
+}
+@media screen and (min-width: 768px) {
+  .form__button {
+    width: 15rem;
+  }
 }/*# sourceMappingURL=bio.css.map */
