@@ -54,6 +54,10 @@ const buildHeadings = (array) => {
     headerEl.classList.add("shows__heading");
     showsHeadings.appendChild(headerEl);
     headerEl.innerText = array[i];
+
+    if (i === 0) {
+      headerEl.classList.add("shows__heading--width");
+    }
   }
 };
 

@@ -137,6 +137,10 @@
       display: flex;
       padding: 0 1.6rem 0.8rem 1.6rem;
     }
+
+    @include desktop {
+      margin-top: 2.4rem;
+    }
   }
 
   &__heading {
@@ -145,6 +149,13 @@
     color: $brand-primary-2;
     font-size: 1.3rem;
     font-weight: 600;
+
+    @include desktop {
+      width: 25%;
+    }
+    &--width {
+      width: 40%;
+    }
   }
 
   &__details {
@@ -152,8 +163,9 @@
       margin: 0 1.6rem;
     }
     @include desktop {
-      width: 100%;
+      width: 75%;
       padding-top: 4.8rem;
+      margin: 0;
     }
   }
 
@@ -169,6 +181,11 @@
 
     @include tablet {
       padding-left: 1.6rem;
+    }
+
+    @include desktop {
+      padding-left: 0;
+      margin-left: 0;
     }
   }
 }
@@ -214,8 +231,16 @@
       width: 25%;
     }
 
+    @include desktop {
+      width: 25%;
+    }
+
     &--bold {
       font-weight: 600;
+
+      @include desktop {
+        width: 40%;
+      }
     }
   }
 
