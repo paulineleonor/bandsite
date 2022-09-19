@@ -1,14 +1,4 @@
-let commentsSection = document.querySelector(".comments");
-
-// // Establish current date
-// const currentDate = new Date();
-
-// const currentSecond = currentDate.getSeconds();
-// const currentMinute = currentDate.getMinutes();
-// const currentHour = currentDate.getHours();
-// const currentDayOfMonth = currentDate.getDate();
-// const currentMonth = currentDate.getMonth() + 1;
-// const currentYear = currentDate.getFullYear();
+let commentsSectionEl = document.querySelector(".comments");
 
 let comments = [
   {
@@ -31,53 +21,56 @@ let comments = [
   },
 ];
 
+// Creates full list of comments
 const displayComments = (array) => {
-  commentsSection.innerHTML = "";
+  commentsSectionEl.innerHTML = "";
   for (let i = 0; i < array.length; i++) {
     displayComment(array[i]);
   }
 };
 
+// Builds a comment block for each object in comment array
 const displayComment = (comment) => {
-  let commentBlock = document.createElement("article");
-  commentBlock.classList.add("comment");
-  commentsSection.appendChild(commentBlock);
-  let imgContainer = document.createElement("section");
-  imgContainer.classList.add("comment__icons");
-  commentBlock.appendChild(imgContainer);
+  let commentBlockEl = document.createElement("article");
+  commentBlockEl.classList.add("comment");
+  commentsSectionEl.appendChild(commentBlockEl);
+  let imgContainerEl = document.createElement("section");
+  imgContainerEl.classList.add("comment__icons");
+  commentBlockEl.appendChild(imgContainerEl);
 
-  let commentsImg = document.createElement("div");
-  commentsImg.classList.add("comment__img");
-  imgContainer.appendChild(commentsImg);
+  let commentImgEl = document.createElement("div");
+  commentImgEl.classList.add("comment__img");
+  imgContainerEl.appendChild(commentImgEl);
 
-  let commentsCopy = document.createElement("div");
-  commentsCopy.classList.add("comment__wrapper");
-  commentBlock.appendChild(commentsCopy);
+  let commentCopyEl = document.createElement("div");
+  commentCopyEl.classList.add("comment__wrapper");
+  commentBlockEl.appendChild(commentCopyEl);
 
-  let commentsNameDate = document.createElement("section");
-  commentsNameDate.classList.add("comment__user");
-  commentsCopy.appendChild(commentsNameDate);
+  let commentNameDateEl = document.createElement("section");
+  commentNameDateEl.classList.add("comment__user");
+  commentCopyEl.appendChild(commentNameDateEl);
 
-  let commentsName = document.createElement("p");
-  commentsName.classList.add("comment__name");
-  commentsName.innerText = comment.name;
-  commentsNameDate.appendChild(commentsName);
+  let commentNameEl = document.createElement("p");
+  commentNameEl.classList.add("comment__name");
+  commentNameEl.innerText = comment.name;
+  commentNameDateEl.appendChild(commentNameEl);
 
-  let commentsDate = document.createElement("p");
-  commentsNameDate.appendChild(commentsDate);
-  commentsDate.classList.add("comment__date");
-  commentsDate.innerText = comment.date;
-  let commentsText = document.createElement("p");
-  commentsCopy.appendChild(commentsText);
-  commentsText.classList.add("comment__text");
-  commentsText.innerText = comment.message;
+  let commentDateEl = document.createElement("p");
+  commentNameDateEl.appendChild(commentDateEl);
+  commentDateEl.classList.add("comment__date");
+  commentDateEl.innerText = comment.date;
+
+  let commentTextEl = document.createElement("p");
+  commentCopyEl.appendChild(commentTextEl);
+  commentTextEl.classList.add("comment__text");
+  commentTextEl.innerText = comment.message;
 };
 
 displayComments(comments);
 
-// Create new comment
 const form = document.querySelector(".form");
 
+// Handles form submission to add comment to comments array
 const addNewComment = (event) => {
   event.preventDefault();
 
@@ -106,8 +99,6 @@ const addNewComment = (event) => {
     return;
   }
 
-  nameInputEl.classList.remove("form__input--error");
-  messageInputEl.classList.remove("form__input--error");
   const newComment = {
     name: name,
     message: message,
@@ -122,15 +113,3 @@ const addNewComment = (event) => {
 };
 
 form.addEventListener("submit", addNewComment);
-
-// const dynamicTimestamp = () => {
-//   const currentDate = new Date();
-
-//   const currentMinute = currentDate.getMinutes();
-//   const currentHour = currentDate.getHours();
-//   const currentDayOfMonth = currentDate.getDate();
-//   const currentMonth = currentDate.getMonth() + 1;
-//   const currentYear = currentDate.getFullYear();
-// };
-
-// dynamicTimestamp();

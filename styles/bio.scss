@@ -2,8 +2,8 @@
 @use "./partials/typography";
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
-@use "./partials/header";
-@use "./partials/footer";
+@use "./partials/components/header";
+@use "./partials/components/footer";
 
 .hero {
   background-image: url("../assets/images/hero-bio.jpg");
@@ -36,6 +36,10 @@
     height: inherit;
     background-color: rgba($brand-primary-1, 0.5);
   }
+
+  &__title {
+    margin: 0;
+  }
 }
 
 .about {
@@ -54,7 +58,11 @@
 
   &__title {
     @include tablet {
-      padding-left: 0;
+      padding-left: 3.6rem;
+    }
+
+    @include desktop {
+      width: $desktop-max-width;
     }
   }
 
@@ -68,7 +76,8 @@
   }
 
   &__quote {
-    @include subheader-mobile;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
     font-weight: 600;
 
     @include tablet {
@@ -170,33 +179,18 @@
   }
 }
 
-.comments {
-  padding: 0 1.6rem;
-
-  @include tablet {
-    padding: 0 8rem;
-  }
-
-  @include desktop {
-    max-width: 50%;
-    margin: 0 auto;
-    padding: 0;
-  }
-}
-
 .conversation {
-  // display: flex;
-  width: 100%;
-  // border-bottom: 1px solid $brand-secondary-2;
-  padding-bottom: $standard-spacing-mobile;
+  &__container {
+    padding-bottom: $standard-spacing-mobile;
 
-  @include tablet {
-    padding-bottom: 3.6rem;
-  }
+    @include tablet {
+      padding-bottom: $standard-spacing-desktop;
+    }
 
-  @include desktop {
-    width: $desktop-max-width;
-    margin: 0 auto;
+    @include desktop {
+      width: $desktop-max-width;
+      margin: 0 auto;
+    }
   }
 
   &__wrapper {
@@ -214,28 +208,125 @@
   }
 
   &__title {
-    margin-left: 1.6rem;
+    padding-left: 1.6rem;
 
     @include tablet {
-      // margin-bottom: $standard-spacing-desktop;
-      margin-left: 0;
+      padding-left: 3.6rem;
     }
   }
 
   &__icon {
     max-width: 8rem;
     max-height: 8rem;
-    padding: 1.6rem 1rem 0 0;
+    padding: $standard-spacing-mobile 2rem 0 0;
   }
 
   &__photo {
-    margin-top: 0.8rem;
     width: 4.8rem;
     height: 4.8rem;
     background-image: url("../assets/images/Mohan-muruge.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: 20% 50%;
     border-radius: 50%;
+
+    @include tablet {
+      margin-top: 0.8rem;
+    }
+  }
+}
+
+.form {
+  width: 100%;
+
+  &__inner {
+    padding-bottom: $standard-spacing-mobile;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      padding-bottom: $gutters-desktop;
+    }
+  }
+
+  &__label {
+    text-transform: uppercase;
+    color: $brand-primary-2;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  &__input {
+    all: unset;
+    margin-bottom: 1.6rem;
+    border: 1px solid $brand-secondary-2;
+    border-radius: 4px;
+    background-color: $brand-secondary-3;
+    padding: 1.2rem;
+
+    &:focus {
+      border: 1px solid $brand-primary-1;
+    }
+
+    &::placeholder {
+      color: $brand-primary-1;
+    }
+
+    &--error {
+      border-color: #d22d2d;
+    }
+
+    @include tablet {
+      margin-bottom: 2.4rem;
+      padding: 1.6rem;
+    }
+
+    &--height {
+      height: 8rem;
+    }
+  }
+
+  &__wrapper {
+    @include tablet {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__button {
+    background-color: $brand-primary-1;
+    color: white;
+    border: none;
+    padding: 0 3.2rem;
+    height: 4rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    width: 100%;
+    font-size: 1.5rem;
+    transition: background-color 1s;
+
+    &:hover {
+      background-color: $brand-secondary-1;
+    }
+
+    @include tablet {
+      width: 15rem;
+    }
+  }
+}
+
+.comments {
+  padding: 0 1.6rem;
+
+  @include tablet {
+    padding: 0 8rem;
+  }
+
+  @include desktop {
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 0;
   }
 }
 
@@ -254,7 +345,7 @@
     width: 4.8rem;
     background-color: $brand-secondary-2;
     border-radius: 50%;
-    margin-right: 1.6rem;
+    margin-right: 2rem;
   }
 
   &__user {
@@ -280,91 +371,5 @@
 
   &__wrapper {
     width: 100%;
-  }
-}
-
-.form {
-  padding-bottom: 1.6rem;
-  display: flex;
-  flex-direction: column;
-
-  @include tablet {
-    padding-bottom: 2.4rem;
-  }
-
-  &__container {
-    width: 100%;
-  }
-
-  &__label {
-    text-transform: uppercase;
-    color: $brand-primary-2;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-
-    @include tablet {
-      font-size: 1.4rem;
-    }
-  }
-
-  &__input {
-    all: unset;
-    margin-bottom: 1.6rem;
-    border: 1px solid $brand-secondary-2;
-    border-radius: 4px;
-    background-color: $brand-secondary-3;
-    padding: 1.2rem;
-
-    &:focus {
-      border: 1px solid $brand-primary-1;
-    }
-
-    &::placeholder {
-      color: $brand-primary-1;
-    }
-    &--error {
-      border-color: #d22d2d;
-    }
-
-    @include tablet {
-      margin-bottom: 2.4rem;
-      padding: 1.6rem;
-    }
-
-    &--height {
-      @include tablet {
-        height: 8rem;
-      }
-    }
-  }
-
-  &__wrapper {
-    @include tablet {
-      display: flex;
-      justify-content: flex-end;
-    }
-  }
-
-  &__button {
-    background-color: $brand-primary-1;
-    color: white;
-    border: none;
-    padding: 0 3.2rem;
-    height: 4rem;
-    border-radius: 4px;
-    text-transform: uppercase;
-    font-weight: 600;
-    width: 100%;
-    transition: background-color 1s;
-    font-size: 1.5rem;
-
-    &:hover {
-      background-color: $brand-secondary-1;
-    }
-
-    @include tablet {
-      width: 15rem;
-    }
   }
 }

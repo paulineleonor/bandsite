@@ -2,12 +2,12 @@
 @use "./partials/typography";
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
-@use "./partials/header";
-@use "./partials/footer";
+@use "./partials/components/header";
+@use "./partials/components/header";
 
 .hero {
   background-image: url("../assets/images/hero-shows.jpg");
-  height: 75vh;
+  height: 60vh;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,7 +17,7 @@
   justify-content: center;
 
   @include tablet {
-    height: 90vh;
+    height: 70vh;
     background-position: 0% 55%;
   }
 
@@ -27,16 +27,8 @@
   }
 
   &__wrapper {
-    width: 100%;
-
-    @include tablet {
-      // width: $desktop-max-width;
-      margin-top: 2.4rem;
-    }
     @include desktop {
       width: 50%;
-      // width: $desktop-max-width;
-      // margin: 0 auto;
     }
   }
 
@@ -60,30 +52,11 @@
     }
   }
 
-  &__iframe {
-    position: relative;
-    width: 100%;
-    padding: 0 $standard-spacing-mobile;
-    margin-bottom: 3.6rem;
-
-    @include tablet {
-      width: 60%;
-      padding: 0 $standard-spacing-desktop;
-    }
-
-    @include desktop {
-      width: 50%;
-      margin-bottom: 0;
-    }
-  }
-
   &__copy {
     position: relative;
     margin-left: 1.6rem;
     font-size: 2rem;
     font-weight: normal;
-    // padding-bottom: 2.4rem;
-    // padding-top: 4.8rem;
 
     @include tablet {
       margin-left: 0;
@@ -95,6 +68,8 @@
 
     @include desktop {
       margin-bottom: 1.6rem;
+      margin-left: 0;
+      padding-left: 0;
     }
   }
 
@@ -111,27 +86,44 @@
     }
 
     @include desktop {
-      width: auto;
+      width: 95%;
       padding-bottom: 1.6rem;
+      margin-left: 0;
+    }
+  }
+}
+
+.iframe {
+  @include desktop {
+    width: 50%;
+  }
+
+  &__display {
+    position: relative;
+    padding: 0 $standard-spacing-mobile;
+    margin-bottom: 3.6rem;
+
+    @include tablet {
+      width: 60%;
+      padding: 0 $standard-spacing-desktop;
+      margin-bottom: 0;
+    }
+
+    @include desktop {
+      width: 100%;
+      padding: 1.5rem 0 1em 9rem;
     }
   }
 }
 
 .shows {
-  padding-bottom: 1.6rem;
-
-  @include tablet {
-    padding-bottom: 3.6rem;
-  }
-
   @include desktop {
-    display: flex;
-    justify-content: space-between;
+    width: $desktop-max-width;
+    margin: 0 auto;
   }
 
   &__headings {
     display: none;
-    width: 100%;
 
     @include tablet {
       display: flex;
@@ -140,6 +132,7 @@
 
     @include desktop {
       margin-top: 2.4rem;
+      padding: 0 2.4rem 0.8rem 2.4rem;
     }
   }
 
@@ -154,7 +147,9 @@
       width: 25%;
     }
     &--width {
-      width: 40%;
+      @include desktop {
+        width: 40%;
+      }
     }
   }
 
@@ -170,9 +165,15 @@
   }
 
   &__container {
+    padding-bottom: 1.6rem;
+
+    @include tablet {
+      padding-bottom: 3.6rem;
+    }
+
     @include desktop {
-      width: $desktop-max-width;
-      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
     }
   }
 
@@ -209,9 +210,12 @@
   @include tablet {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 1.6rem;
     width: 100%;
+  }
+
+  @include desktop {
+    padding: 1.6rem 2.4rem;
   }
 
   &__label {
@@ -248,13 +252,7 @@
     text-transform: uppercase;
     font-weight: 600;
     color: white;
-    // background-color: $brand-primary-1;
     font-size: 1.3rem;
-    display: flex;
-    justify-content: center;
-    border-radius: 4px;
-    height: 4rem;
-    align-items: center;
     margin: 2.4rem 0 1.6rem 0;
 
     @include tablet {
@@ -271,8 +269,12 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    min-width: 1rem;
-    width: 100%;
+    transition: background-color 1s;
+
+    &:hover {
+      background-color: $brand-secondary-1;
+    }
+
     @include tablet {
       width: auto;
       padding: 0 3.2rem;

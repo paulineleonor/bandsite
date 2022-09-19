@@ -7,6 +7,7 @@
   padding: 0 $standard-spacing-mobile $standard-spacing-mobile
     $standard-spacing-mobile;
   color: white;
+  background-color: $brand-primary-1;
 
   @include tablet {
     padding: $heading-top-desktop $standard-spacing-desktop 0
@@ -16,6 +17,16 @@
   @include desktop {
     width: $desktop-max-width;
     margin: 0 auto;
+  }
+
+  & section {
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__container {
+    background-color: $brand-primary-1;
   }
 }
 

@@ -31,28 +31,30 @@ let shows = [
   },
 ];
 
-let showsSection = document.querySelector(".shows");
+// Build shows section structure
+let showsSectionEl = document.querySelector(".shows__container");
 
-let showsTitle = document.createElement("h2");
-showsTitle.classList.add("shows__title");
-showsSection.appendChild(showsTitle);
-showsTitle.innerText = "Shows";
+let showsTitleEl = document.createElement("h2");
+showsTitleEl.classList.add("shows__title");
+showsSectionEl.appendChild(showsTitleEl);
+showsTitleEl.innerText = "Shows";
 
-let showsDetails = document.createElement("section");
-showsDetails.classList.add("shows__details");
-showsSection.appendChild(showsDetails);
+let showsDetailsEl = document.createElement("section");
+showsDetailsEl.classList.add("shows__details");
+showsSectionEl.appendChild(showsDetailsEl);
 
-let showsHeadings = document.createElement("div");
-showsHeadings.classList.add("shows__headings");
-showsDetails.appendChild(showsHeadings);
+let showsHeadingsEl = document.createElement("div");
+showsHeadingsEl.classList.add("shows__headings");
+showsDetailsEl.appendChild(showsHeadingsEl);
 
+// Generates series of headers for desktop version
 let showKeys = ["date", "venue", "location", ""];
 
 const buildHeadings = (array) => {
   for (let i = 0; i < array.length; i++) {
     let headerEl = document.createElement("h3");
     headerEl.classList.add("shows__heading");
-    showsHeadings.appendChild(headerEl);
+    showsHeadingsEl.appendChild(headerEl);
     headerEl.innerText = array[i];
 
     if (i === 0) {
@@ -63,87 +65,72 @@ const buildHeadings = (array) => {
 
 buildHeadings(showKeys);
 
-// let showsHeadingDate = document.createElement("h3");
-// showsHeadingDate.classList.add("shows__heading");
-// showsHeadings.appendChild(showsHeadingDate);
-// showsHeadingDate.innerText = "Date";
-
-// let showsHeadingVenue = document.createElement("h3");
-// showsHeadingVenue.classList.add("shows__heading");
-// showsHeadings.appendChild(showsHeadingVenue);
-// showsHeadingVenue.innerText = "Venue";
-
-// let showsHeadingLocation = document.createElement("h3");
-// showsHeadingLocation.classList.add("shows__heading");
-// showsHeadings.appendChild(showsHeadingLocation);
-// showsHeadingLocation.innerText = "Location";
-
+// Creates full list of shows
 const displayShows = (array) => {
   for (let i = 0; i < array.length; i++) {
     displayShow(array[i]);
   }
 };
 
+// Builds a block for each object in shows array
 const displayShow = (shows) => {
-  let show = document.createElement("article");
-  show.classList.add("show");
-  showsDetails.appendChild(show);
-  let dateLabel = document.createElement("h3");
-  dateLabel.classList.add("show__label");
-  show.appendChild(dateLabel);
-  dateLabel.innerText = Object.keys(shows)[0];
-  let showDate = document.createElement("p");
-  showDate.classList.add("show__info");
-  showDate.classList.add("show__info--bold");
-  show.appendChild(showDate);
-  showDate.innerText = shows.date;
-  let venueLabel = document.createElement("h3");
-  venueLabel.classList.add("show__label");
-  show.appendChild(venueLabel);
-  venueLabel.innerText = Object.keys(shows)[1];
-  let showVenue = document.createElement("p");
-  showVenue.classList.add("show__info");
-  show.appendChild(showVenue);
-  showVenue.innerText = shows.venue;
-  let locationLabel = document.createElement("h3");
-  locationLabel.classList.add("show__label");
-  show.appendChild(locationLabel);
-  locationLabel.innerText = Object.keys(shows)[2];
-  let showLocation = document.createElement("p");
-  showLocation.classList.add("show__info");
-  show.appendChild(showLocation);
-  showLocation.innerText = shows.location;
+  let showEl = document.createElement("article");
+  showEl.classList.add("show");
+  showsDetailsEl.appendChild(showEl);
 
-  let buttonContainer = document.createElement("div");
-  buttonContainer.classList.add("show__button");
-  show.appendChild(buttonContainer);
-  let buyButton = document.createElement("a");
-  buyButton.classList.add("show__link");
-  buttonContainer.appendChild(buyButton);
-  buyButton.innerText = "Buy tickets";
+  let dateLabelEl = document.createElement("h3");
+  dateLabelEl.classList.add("show__label");
+  showEl.appendChild(dateLabelEl);
+  dateLabelEl.innerText = Object.keys(shows)[0];
 
-  // show.addEventListener("click", function () {
-  //   show.classList.toggle("show--active");
-  // });
+  let showsDateEl = document.createElement("p");
+  showsDateEl.classList.add("show__info");
+  showsDateEl.classList.add("show__info--bold");
+  showEl.appendChild(showsDateEl);
+  showsDateEl.innerText = shows.date;
+
+  let venueLabelEl = document.createElement("h3");
+  venueLabelEl.classList.add("show__label");
+  showEl.appendChild(venueLabelEl);
+  venueLabelEl.innerText = Object.keys(shows)[1];
+
+  let showVenueEl = document.createElement("p");
+  showVenueEl.classList.add("show__info");
+  showEl.appendChild(showVenueEl);
+  showVenueEl.innerText = shows.venue;
+
+  let locationLabelEl = document.createElement("h3");
+  locationLabelEl.classList.add("show__label");
+  showEl.appendChild(locationLabelEl);
+  locationLabelEl.innerText = Object.keys(shows)[2];
+
+  let showLocationEl = document.createElement("p");
+  showLocationEl.classList.add("show__info");
+  showEl.appendChild(showLocationEl);
+  showLocationEl.innerText = shows.location;
+
+  let buttonContainerEl = document.createElement("div");
+  buttonContainerEl.classList.add("show__button");
+  showEl.appendChild(buttonContainerEl);
+
+  let buttonEl = document.createElement("a");
+  buttonEl.classList.add("show__link");
+  buttonContainerEl.appendChild(buttonEl);
+  buttonEl.innerText = "Buy tickets";
 };
 
 displayShows(shows);
 
-// let tableRow = document.querySelector(".show");
-
-// tableRow.addEventListener("click", function () {
-//   tableRow.classList.toggle("show--active");
-// });
-
 const showsList = document.querySelectorAll(".show");
 
+// Allows shows to be selected and have styling applied
 const selectShow = (array) => {
   for (let i = 0; i < showsList.length; i++) {
     showsList[i].addEventListener("click", () => {
       for (let i = 0; i < showsList.length; i++) {
         showsList[i].classList.remove("show--active");
       }
-      showsList[i].classList.toggle("show--active");
+      showsList[i].classList.add("show--active");
     });
   }
 };

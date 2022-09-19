@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   max-width: $desktop-max-width;
+  background-color: $brand-primary-1;
 
   @include tablet {
     flex-direction: row;
@@ -33,6 +34,14 @@
     @include tablet {
       margin: 0 $standard-spacing-desktop;
     }
+
+    @include desktop {
+      margin-left: 0;
+    }
+  }
+
+  &__wrapper {
+    background-color: $brand-primary-1;
   }
 }
 

@@ -62,16 +62,3 @@ p,
   display: flex;
   width: 100;
 }
-
-.footer section {
-  @include tablet {
-    display: flex;
-  }
-}
-
-.header,
-.footer,
-.footer__container,
-.header__wrapper {
-  background-color: $brand-primary-1;
-}
