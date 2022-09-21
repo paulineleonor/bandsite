@@ -1,35 +1,50 @@
 let shows = [
-  {
-    date: "Mon Sept 06 2021",
-    venue: "Ronald Lane",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Tue Sept 21 2021",
-    venue: "Pier 3 East",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Oct 15 2021",
-    venue: "View Lounge",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Sat Nov 06 2021",
-    venue: "Hyatt Agency",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Nov 26 2021",
-    venue: "Moscow Center",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-  },
+  // {
+  //   date: "Mon Sept 06 2021",
+  //   venue: "Ronald Lane",
+  //   location: "San Francisco, CA",
+  // },
+  // {
+  //   date: "Tue Sept 21 2021",
+  //   venue: "Pier 3 East",
+  //   location: "San Francisco, CA",
+  // },
+  // {
+  //   date: "Fri Oct 15 2021",
+  //   venue: "View Lounge",
+  //   location: "San Francisco, CA",
+  // },
+  // {
+  //   date: "Sat Nov 06 2021",
+  //   venue: "Hyatt Agency",
+  //   location: "San Francisco, CA",
+  // },
+  // {
+  //   date: "Fri Nov 26 2021",
+  //   venue: "Moscow Center",
+  //   location: "San Francisco, CA",
+  // },
+  // {
+  //   date: "Wed Dec 15 2021",
+  //   venue: "Press Club",
+  //   location: "San Francisco, CA",
+  // },
 ];
+
+axios
+  .get("https://project-1-api.herokuapp.com/showdates/?api_key=paulinejeremie")
+  .then((response) => {
+    shows = response.data;
+    // console.log(response.data);
+    // for (i = 0; i < response.data; i++) {
+    //   shows.push(response.data[i]);
+    //   console.log(shows);
+    // }
+
+    console.log(shows);
+
+    displayShow(shows);
+  });
 
 // Build shows section structure
 let showsSectionEl = document.querySelector(".shows__container");
@@ -73,53 +88,56 @@ const displayShows = (array) => {
 };
 
 // Builds a block for each object in shows array
-const displayShow = (shows) => {
-  let showEl = document.createElement("article");
-  showEl.classList.add("show");
-  showsDetailsEl.appendChild(showEl);
+const displayShow = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    let showEl = document.createElement("article");
+    showEl.classList.add("show");
+    showsDetailsEl.appendChild(showEl);
 
-  let dateLabelEl = document.createElement("h3");
-  dateLabelEl.classList.add("show__label");
-  showEl.appendChild(dateLabelEl);
-  dateLabelEl.innerText = Object.keys(shows)[0];
+    let dateLabelEl = document.createElement("h3");
+    dateLabelEl.classList.add("show__label");
+    showEl.appendChild(dateLabelEl);
+    dateLabelEl.innerText = Object.keys(shows)[0];
 
-  let showsDateEl = document.createElement("p");
-  showsDateEl.classList.add("show__info");
-  showsDateEl.classList.add("show__info--bold");
-  showEl.appendChild(showsDateEl);
-  showsDateEl.innerText = shows.date;
+    let showsDateEl = document.createElement("p");
+    showsDateEl.classList.add("show__info");
+    showsDateEl.classList.add("show__info--bold");
+    showEl.appendChild(showsDateEl);
+    showsDateEl.innerText = array[i].date;
 
-  let venueLabelEl = document.createElement("h3");
-  venueLabelEl.classList.add("show__label");
-  showEl.appendChild(venueLabelEl);
-  venueLabelEl.innerText = Object.keys(shows)[1];
+    let venueLabelEl = document.createElement("h3");
+    venueLabelEl.classList.add("show__label");
+    showEl.appendChild(venueLabelEl);
+    venueLabelEl.innerText = Object.keys(shows)[1];
 
-  let showVenueEl = document.createElement("p");
-  showVenueEl.classList.add("show__info");
-  showEl.appendChild(showVenueEl);
-  showVenueEl.innerText = shows.venue;
+    let showVenueEl = document.createElement("p");
+    showVenueEl.classList.add("show__info");
+    showEl.appendChild(showVenueEl);
+    showVenueEl.innerText = array[i].place;
 
-  let locationLabelEl = document.createElement("h3");
-  locationLabelEl.classList.add("show__label");
-  showEl.appendChild(locationLabelEl);
-  locationLabelEl.innerText = Object.keys(shows)[2];
+    let locationLabelEl = document.createElement("h3");
+    locationLabelEl.classList.add("show__label");
+    showEl.appendChild(locationLabelEl);
+    locationLabelEl.innerText = Object.keys(shows)[2];
 
-  let showLocationEl = document.createElement("p");
-  showLocationEl.classList.add("show__info");
-  showEl.appendChild(showLocationEl);
-  showLocationEl.innerText = shows.location;
+    let showLocationEl = document.createElement("p");
+    showLocationEl.classList.add("show__info");
+    showEl.appendChild(showLocationEl);
+    showLocationEl.innerText = array[i].location;
+    console.log(array[i]);
 
-  let buttonContainerEl = document.createElement("div");
-  buttonContainerEl.classList.add("show__button");
-  showEl.appendChild(buttonContainerEl);
+    let buttonContainerEl = document.createElement("div");
+    buttonContainerEl.classList.add("show__button");
+    showEl.appendChild(buttonContainerEl);
 
-  let buttonEl = document.createElement("a");
-  buttonEl.classList.add("show__link");
-  buttonContainerEl.appendChild(buttonEl);
-  buttonEl.innerText = "Buy tickets";
+    let buttonEl = document.createElement("a");
+    buttonEl.classList.add("show__link");
+    buttonContainerEl.appendChild(buttonEl);
+    buttonEl.innerText = "Buy tickets";
+  }
 };
 
-displayShows(shows);
+displayShow(shows);
 
 const showsList = document.querySelectorAll(".show");
 
