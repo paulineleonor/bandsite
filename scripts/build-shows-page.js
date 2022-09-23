@@ -3,8 +3,7 @@ let shows = [];
 let showsList = [];
 
 const dateFormatting = (timeStamp) => {
-  let date = new Date(timeStamp).toString().split(" ").splice(0, 4);
-  let formattedDate = `${date[0]} ${date[1]} ${date[2]} ${date[3]}`;
+  let formattedDate = new Date(timeStamp).toDateString();
   return formattedDate;
 };
 

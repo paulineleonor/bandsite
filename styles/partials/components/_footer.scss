@@ -1,7 +1,7 @@
-@use "./resets";
-@use "./typography";
-@use "./variables" as *;
-@use "./mixins" as *;
+@use "../resets";
+@use "../typography";
+@use "../variables" as *;
+@use "../mixins" as *;
 
 .footer {
   padding: 0 $standard-spacing-mobile $standard-spacing-mobile

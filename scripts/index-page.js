@@ -1,25 +1,5 @@
 let commentsSectionEl = document.querySelector(".comments");
-
-let comments = [
-  // {
-  //   name: "Connor Walton",
-  //   message:
-  //     "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  //   date: "02/17/2021",
-  // },
-  // {
-  //   name: "Emilie Beach",
-  //   message:
-  //     "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  //   date: "01/09/2021",
-  // },
-  // {
-  //   name: "Miles Acosta",
-  //   message:
-  //     "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  //   date: "12/20/2020",
-  // },
-];
+let comments = [];
 
 const dynamicTimestamp = (timeStamp) => {
   const dateStringBuilder = (num, string) => {
@@ -61,16 +41,20 @@ const dynamicTimestamp = (timeStamp) => {
   return dateStringBuilder(inYears, "year");
 };
 
-axios
-  .get(
-    "https://project-1-api.herokuapp.com/comments/?api_key=55925818-32b8-44e9-a2bc-5fbdc5153bb7"
-  )
-  .then((response) => {
-    comments = response.data;
-    console.log(comments);
+const getComments = () => {
+  axios
+    .get(
+      "https://project-1-api.herokuapp.com/comments/?api_key=55925818-32b8-44e9-a2bc-5fbdc5153bb7"
+    )
+    .then((response) => {
+      comments = response.data;
+      console.log(comments);
+      comments.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
+      displayComments(comments);
+    });
+};
 
-    displayComments(comments);
-  });
+getComments();
 
 // Creates full list of comments
 const displayComments = (array) => {
@@ -78,6 +62,20 @@ const displayComments = (array) => {
   for (let i = 0; i < array.length; i++) {
     displayComment(array[i]);
   }
+};
+
+const deleteComments = (event) => {
+  event.preventDefault();
+  console.log(event.target);
+  console.log(comment.id);
+
+  // axios
+  //   .delete(
+  //     `https://project-1-api.herokuapp.com/comments/${comment.id}/?api_key=55925818-32b8-44e9-a2bc-5fbdc5153bb7`
+  //   )
+  //   .then(() => {
+  //     displayComments();
+  //   });
 };
 
 // Builds a comment block for each object in comment array
@@ -115,6 +113,18 @@ const displayComment = (comment) => {
   commentCopyEl.appendChild(commentTextEl);
   commentTextEl.classList.add("comment__text");
   commentTextEl.innerText = comment.comment;
+
+  let buttonsEl = document.createElement("div");
+  buttonsEl.classList.add("comment__buttons");
+  commentCopyEl.appendChild(buttonsEl);
+
+  let deleteButtonEl = document.createElement("a");
+  deleteButtonEl.classList.add("comment__delete");
+  buttonsEl.appendChild(deleteButtonEl);
+  deleteButtonEl.innerHTML = "Delete";
+  console.log(comment.id);
+
+  deleteButtonEl.addEventListener("click", deleteComments);
 };
 
 displayComments(comments);
@@ -149,28 +159,38 @@ const addNewComment = (event) => {
     messageInputEl.classList.add("form__input--error");
     return;
   }
+};
+
+const postComment = (event) => {
+  event.preventDefault();
 
   const newComment = {
-    name: name,
-    message: message,
-    date: new Date().toLocaleDateString(),
+    name: event.target.name.value,
+    comment: event.target.comment.value,
   };
 
   axios
     .post(
       "https://project-1-api.herokuapp.com/comments/?api_key=55925818-32b8-44e9-a2bc-5fbdc5153bb7",
-      {
-        headers: { "Content-Type": "application/json" },
-      }
+      newComment
     )
     .then((response) => {
       console.log(response);
-      comments.unshift(newComment);
-      displayComments(comments);
+
+      getComments();
+      // axios
+      //   .get(
+      //     "https://project-1-api.herokuapp.com/comments/?api_key=55925818-32b8-44e9-a2bc-5fbdc5153bb7"
+      //   )
+      //   .then((response) => {
+      //     comments = response.data;
+      //     console.log(comments);
+      //     comments.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
+      //     displayComments(comments);
 
       event.target.name.value = "";
       event.target.comment.value = "";
     });
 };
 
-form.addEventListener("submit", addNewComment);
+form.addEventListener("submit", postComment);

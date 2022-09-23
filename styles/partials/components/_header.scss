@@ -1,8 +1,8 @@
-@use "./resets";
-@use "./mixins" as *;
-@use "./variables" as *;
-@use "./typography";
-@use "./animations";
+@use "../resets";
+@use "../mixins" as *;
+@use "../variables" as *;
+@use "../typography";
+@use "../animations";
 
 .header {
   display: flex;

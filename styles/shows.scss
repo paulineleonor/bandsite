@@ -3,7 +3,6 @@
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
 @use "./partials/components/header";
-@use "./partials/components/header";
 
 .hero {
   background-image: url("../assets/images/hero-shows.jpg");
