@@ -51,6 +51,12 @@ const getComments = () => {
       console.log(comments);
       comments.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
       displayComments(comments);
+    })
+    .catch((error) => {
+      console.log(error);
+      alert(
+        `Something went wrong! Error code: ${error.response.status}, ${error.response.data.message}`
+      );
     });
 };
 
@@ -64,18 +70,20 @@ const displayComments = (array) => {
   }
 };
 
-const deleteComments = (event) => {
-  event.preventDefault();
-  console.log(event.target);
-  console.log(comment.id);
-
-  // axios
-  //   .delete(
-  //     `https://project-1-api.herokuapp.com/comments/${comment.id}/?api_key=55925818-32b8-44e9-a2bc-5fbdc5153bb7`
-  //   )
-  //   .then(() => {
-  //     displayComments();
-  //   });
+const deleteComment = (id) => {
+  axios
+    .delete(
+      `https://project-1-api.herokuapp.com/comments/${id}/?api_key=55925818-32b8-44e9-a2bc-5fbdc5153bb7`
+    )
+    .then(() => {
+      getComments();
+    })
+    .catch((error) => {
+      console.log(error);
+      alert(
+        `Something went wrong! Error code: ${error.response.status}, ${error.response.data.message}`
+      );
+    });
 };
 
 // Builds a comment block for each object in comment array
@@ -124,7 +132,9 @@ const displayComment = (comment) => {
   deleteButtonEl.innerHTML = "Delete";
   console.log(comment.id);
 
-  deleteButtonEl.addEventListener("click", deleteComments);
+  deleteButtonEl.addEventListener("click", () => {
+    deleteComment(comment.id);
+  });
 };
 
 displayComments(comments);
@@ -176,20 +186,16 @@ const postComment = (event) => {
     )
     .then((response) => {
       console.log(response);
-
       getComments();
-      // axios
-      //   .get(
-      //     "https://project-1-api.herokuapp.com/comments/?api_key=55925818-32b8-44e9-a2bc-5fbdc5153bb7"
-      //   )
-      //   .then((response) => {
-      //     comments = response.data;
-      //     console.log(comments);
-      //     comments.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
-      //     displayComments(comments);
 
       event.target.name.value = "";
       event.target.comment.value = "";
+    })
+    .catch((error) => {
+      console.log(error);
+      alert(
+        `Something went wrong! Error code: ${error.response.status}, ${error.response.data.message}`
+      );
     });
 };
 
