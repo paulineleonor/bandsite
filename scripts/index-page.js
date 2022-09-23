@@ -1,3 +1,5 @@
+const apiKey = "55925818-32b8-44e9-a2bc-5fbdc5153bb7";
+
 let commentsSectionEl = document.querySelector(".comments");
 let comments = [];
 
@@ -43,9 +45,7 @@ const dynamicTimestamp = (timeStamp) => {
 
 const getComments = () => {
   axios
-    .get(
-      "https://project-1-api.herokuapp.com/comments/?api_key=55925818-32b8-44e9-a2bc-5fbdc5153bb7"
-    )
+    .get(`https://project-1-api.herokuapp.com/comments/?api_key=${apiKey}`)
     .then((response) => {
       comments = response.data;
       console.log(comments);
@@ -73,9 +73,26 @@ const displayComments = (array) => {
 const deleteComment = (id) => {
   axios
     .delete(
-      `https://project-1-api.herokuapp.com/comments/${id}/?api_key=55925818-32b8-44e9-a2bc-5fbdc5153bb7`
+      `https://project-1-api.herokuapp.com/comments/${id}/?api_key=${apiKey}`
     )
     .then(() => {
+      getComments();
+    })
+    .catch((error) => {
+      console.log(error);
+      alert(
+        `Something went wrong! Error code: ${error.response.status}, ${error.response.data.message}`
+      );
+    });
+};
+
+const likeComment = (id) => {
+  axios
+    .put(
+      `https://project-1-api.herokuapp.com/comments/${id}/like/?api_key=${apiKey}`
+    )
+    .then(() => {
+      id++;
       getComments();
     })
     .catch((error) => {
@@ -126,11 +143,25 @@ const displayComment = (comment) => {
   buttonsEl.classList.add("comment__buttons");
   commentCopyEl.appendChild(buttonsEl);
 
-  let deleteButtonEl = document.createElement("a");
-  deleteButtonEl.classList.add("comment__delete");
+  let likeCount = document.createElement("p");
+  likeCount.classList.add("comment__count");
+  buttonsEl.appendChild(likeCount);
+  likeCount.innerHTML = comment.likes;
+
+  let likeButtonEl = document.createElement("img");
+  likeButtonEl.classList.add("comment__image");
+  likeButtonEl.classList.add("comment__image--margin");
+  likeButtonEl.setAttribute("src", "../assets/images/like.png");
+  buttonsEl.appendChild(likeButtonEl);
+
+  likeButtonEl.addEventListener("click", () => {
+    likeComment(comment.id);
+  });
+
+  let deleteButtonEl = document.createElement("img");
+  deleteButtonEl.classList.add("comment__image");
+  deleteButtonEl.setAttribute("src", "../assets/images/bin.png");
   buttonsEl.appendChild(deleteButtonEl);
-  deleteButtonEl.innerHTML = "Delete";
-  console.log(comment.id);
 
   deleteButtonEl.addEventListener("click", () => {
     deleteComment(comment.id);
@@ -142,7 +173,7 @@ displayComments(comments);
 const form = document.querySelector(".form");
 
 // Handles form submission to add comment to comments array
-const addNewComment = (event) => {
+const postComment = (event) => {
   event.preventDefault();
 
   const name = event.target.name.value;
@@ -169,10 +200,6 @@ const addNewComment = (event) => {
     messageInputEl.classList.add("form__input--error");
     return;
   }
-};
-
-const postComment = (event) => {
-  event.preventDefault();
 
   const newComment = {
     name: event.target.name.value,
@@ -188,8 +215,7 @@ const postComment = (event) => {
       console.log(response);
       getComments();
 
-      event.target.name.value = "";
-      event.target.comment.value = "";
+      event.target.reset();
     })
     .catch((error) => {
       console.log(error);

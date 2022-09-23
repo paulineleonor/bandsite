@@ -3,27 +3,31 @@
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
 @use "./partials/components/header";
+@use "./partials/components/hero";
+@use "./partials/components/footer";
 
 .hero {
-  background-image: url("../assets/images/hero-shows.jpg");
-  height: 60vh;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  @include tablet {
-    height: 70vh;
-    background-position: 0% 55%;
+  &--styling {
+    background-image: url("../assets/images/hero-shows.jpg");
   }
+  // height: 60vh;
+  // width: 100%;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // color: white;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
 
-  @include desktop {
-    height: 100vh;
-    background-position: 0% 30%;
-  }
+  // @include tablet {
+  //   height: 70vh;
+  //   background-position: 0% 55%;
+  // }
+
+  // @include desktop {
+  //   height: 100vh;
+  //   background-position: 0% 30%;
+  // }
 
   &__wrapper {
     @include desktop {
@@ -40,16 +44,16 @@
     }
   }
 
-  &__overlay {
-    position: absolute;
-    width: 100%;
-    height: inherit;
-    background-color: rgba($brand-primary-1, 0.5);
+  // &__overlay {
+  //   position: absolute;
+  //   width: 100%;
+  //   height: inherit;
+  //   background-color: rgba($brand-primary-1, 0.5);
 
-    @include tablet {
-      height: inherit;
-    }
-  }
+  //   @include tablet {
+  //     height: inherit;
+  //   }
+  // }
 
   &__copy {
     position: relative;
@@ -248,9 +252,9 @@
   }
 
   &__button {
-    text-transform: uppercase;
-    font-weight: 600;
-    color: white;
+    // text-transform: uppercase;
+    // font-weight: 600;
+    // color: white;
     font-size: 1.3rem;
     margin: 2.4rem 0 1.6rem 0;
 
@@ -262,13 +266,17 @@
   }
 
   &__link {
-    background-color: $brand-primary-1;
-    border-radius: 4px;
-    height: 4rem;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    transition: background-color 1s;
+    @include button;
+    // background-color: $brand-primary-1;
+    // border-radius: 4px;
+    // height: 4rem;
+    // align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // transition: background-color 1s;
+    // text-transform: uppercase;
+    // color: white;
+    // font-weight: 600;
 
     &:hover {
       background-color: $brand-secondary-1;

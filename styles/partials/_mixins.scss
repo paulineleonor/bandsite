@@ -24,3 +24,21 @@
     @content;
   }
 }
+
+@mixin button {
+  background-color: $brand-primary-1;
+  border-radius: 4px;
+  height: 4rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transition: background-color 1s;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+  border: none;
+
+  &:hover {
+    background-color: $brand-secondary-1;
+  }
+}

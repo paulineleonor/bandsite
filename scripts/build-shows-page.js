@@ -36,27 +36,40 @@ showsDetailsEl.appendChild(showsHeadingsEl);
 
 // Generates series of headers for desktop version
 let showKeys = ["date", "venue", "location", ""];
+showKeys.forEach((header) => {
+  let headerEl = document.createElement("h3");
+  headerEl.classList.add("shows__heading");
+  showsHeadingsEl.appendChild(headerEl);
+  headerEl.innerText = header;
 
-const buildHeadings = (array) => {
-  for (let i = 0; i < array.length; i++) {
-    let headerEl = document.createElement("h3");
-    headerEl.classList.add("shows__heading");
-    showsHeadingsEl.appendChild(headerEl);
-    headerEl.innerText = array[i];
-
-    if (i === 0) {
-      headerEl.classList.add("shows__heading--width");
-    }
+  if (header === "date") {
+    headerEl.classList.add("shows__heading--width");
   }
-};
+});
 
-buildHeadings(showKeys);
+// const buildHeadings = (array) => {
+//   for (let i = 0; i < array.length; i++) {
+//     let headerEl = document.createElement("h3");
+//     headerEl.classList.add("shows__heading");
+//     showsHeadingsEl.appendChild(headerEl);
+//     headerEl.innerText = array[i];
+
+//     if (i === 0) {
+//       headerEl.classList.add("shows__heading--width");
+//     }
+//   }
+// };
+
+// buildHeadings(showKeys);
 
 // Creates full list of shows
 const displayShows = (array) => {
-  for (let i = 0; i < array.length; i++) {
-    displayShow(array[i]);
-  }
+  array.forEach((showBlock) => {
+    displayShow(showBlock);
+  });
+  // for (let i = 0; i < array.length; i++) {
+  //   displayShow(array[i]);
+  // }
 };
 
 // Builds a block for each object in shows array

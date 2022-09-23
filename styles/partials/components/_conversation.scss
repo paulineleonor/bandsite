@@ -1,0 +1,146 @@
+@use "../resets";
+@use "../typography";
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.conversation {
+  &__container {
+    padding-bottom: $standard-spacing-mobile;
+
+    @include tablet {
+      padding-bottom: $standard-spacing-desktop;
+    }
+
+    @include desktop {
+      width: $desktop-max-width;
+      margin: 0 auto;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    border-bottom: 1px solid $brand-secondary-2;
+    margin: 0 1.6rem;
+
+    @include tablet {
+      margin: 0 8rem;
+    }
+    @include desktop {
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    padding-left: 1.6rem;
+
+    @include tablet {
+      padding-left: 3.6rem;
+    }
+  }
+
+  &__icon {
+    max-width: 8rem;
+    max-height: 8rem;
+    padding: $standard-spacing-mobile 2rem 0 0;
+  }
+
+  &__photo {
+    width: 4.8rem;
+    height: 4.8rem;
+    background-image: url("../assets/images/Mohan-muruge.jpg");
+    background-size: cover;
+    background-position: 20% 50%;
+    border-radius: 50%;
+
+    @include tablet {
+      margin-top: 0.8rem;
+    }
+  }
+}
+
+.comments {
+  padding: 0 1.6rem;
+
+  @include tablet {
+    padding: 0 8rem;
+  }
+
+  @include desktop {
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+.comment {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid $brand-secondary-2;
+  padding: $standard-spacing-mobile 0;
+
+  @include tablet {
+    padding: 2.4rem 0;
+  }
+
+  &__img {
+    height: 4.8rem;
+    width: 4.8rem;
+    background-color: $brand-secondary-2;
+    border-radius: 50%;
+    margin-right: 2rem;
+  }
+
+  &__user {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 0.8rem;
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+
+  &__date {
+    color: $brand-primary-2;
+  }
+
+  &__text {
+    @include tablet {
+      line-height: 2.4rem;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__image {
+    height: 1.6rem;
+
+    &--margin {
+      margin-right: 1rem;
+    }
+  }
+
+  &__count {
+    margin-right: 0.3rem;
+  }
+  // &__link {
+  //   color: $brand-primary-2;
+  //   text-transform: uppercase;
+  //   text-decoration: none;
+  //   font-size: 1rem;
+  //   margin-top: 1.4rem;
+  //   font-weight: 600;
+
+  //   &:hover {
+  //     color: #d22d2d;
+  //   }
+}

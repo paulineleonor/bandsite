@@ -200,6 +200,251 @@ p,
   border-color: white;
 }
 
+.hero {
+  background-image: url("../assets/images/hero-shows.jpg");
+  height: 70vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    height: 90vh;
+    background-position: 0% 55%;
+  }
+}
+@media screen and (min-width: 1279px) {
+  .hero {
+    height: 100vh;
+    background-position: 0% 30%;
+  }
+}
+@media screen and (min-width: 1279px) {
+  .hero__container {
+    width: 1020px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+.hero__overlay {
+  position: absolute;
+  width: 100%;
+  height: inherit;
+  background-color: rgba(50, 50, 50, 0.5);
+}
+@media screen and (min-width: 768px) {
+  .hero__overlay {
+    height: inherit;
+  }
+}
+
+.form {
+  width: 100%;
+}
+.form__inner {
+  padding-bottom: 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .form__inner {
+    padding-bottom: 2.4rem;
+  }
+}
+.form__label {
+  text-transform: uppercase;
+  color: #afafaf;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+.form__input {
+  all: unset;
+  margin-bottom: 1.6rem;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  background-color: #fafafa;
+  padding: 1.2rem;
+}
+.form__input:focus {
+  border: 1px solid #323232;
+}
+.form__input::placeholder {
+  color: #323232;
+}
+.form__input--error {
+  border-color: #d22d2d;
+}
+@media screen and (min-width: 768px) {
+  .form__input {
+    margin-bottom: 2.4rem;
+    padding: 1.6rem;
+  }
+}
+.form__input--height {
+  height: 8rem;
+}
+@media screen and (min-width: 768px) {
+  .form__wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.form__button {
+  background-color: #323232;
+  border-radius: 4px;
+  height: 4rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transition: background-color 1s;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 0 3.2rem;
+  width: 100%;
+  font-size: 1.5rem;
+}
+.form__button:hover {
+  background-color: #000000;
+}
+@media screen and (min-width: 768px) {
+  .form__button {
+    width: 15rem;
+  }
+}
+
+.conversation__container {
+  padding-bottom: 1.6rem;
+}
+@media screen and (min-width: 768px) {
+  .conversation__container {
+    padding-bottom: 3.6rem;
+  }
+}
+@media screen and (min-width: 1279px) {
+  .conversation__container {
+    width: 1020px;
+    margin: 0 auto;
+  }
+}
+.conversation__wrapper {
+  display: flex;
+  border-bottom: 1px solid #e1e1e1;
+  margin: 0 1.6rem;
+}
+@media screen and (min-width: 768px) {
+  .conversation__wrapper {
+    margin: 0 8rem;
+  }
+}
+@media screen and (min-width: 1279px) {
+  .conversation__wrapper {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+.conversation__title {
+  padding-left: 1.6rem;
+}
+@media screen and (min-width: 768px) {
+  .conversation__title {
+    padding-left: 3.6rem;
+  }
+}
+.conversation__icon {
+  max-width: 8rem;
+  max-height: 8rem;
+  padding: 1.6rem 2rem 0 0;
+}
+.conversation__photo {
+  width: 4.8rem;
+  height: 4.8rem;
+  background-image: url("../assets/images/Mohan-muruge.jpg");
+  background-size: cover;
+  background-position: 20% 50%;
+  border-radius: 50%;
+}
+@media screen and (min-width: 768px) {
+  .conversation__photo {
+    margin-top: 0.8rem;
+  }
+}
+
+.comments {
+  padding: 0 1.6rem;
+}
+@media screen and (min-width: 768px) {
+  .comments {
+    padding: 0 8rem;
+  }
+}
+@media screen and (min-width: 1279px) {
+  .comments {
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+.comment {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 1.6rem 0;
+}
+@media screen and (min-width: 768px) {
+  .comment {
+    padding: 2.4rem 0;
+  }
+}
+.comment__img {
+  height: 4.8rem;
+  width: 4.8rem;
+  background-color: #e1e1e1;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+.comment__user {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.8rem;
+}
+.comment__name {
+  font-weight: 600;
+}
+.comment__date {
+  color: #afafaf;
+}
+@media screen and (min-width: 768px) {
+  .comment__text {
+    line-height: 2.4rem;
+  }
+}
+.comment__wrapper {
+  width: 100%;
+}
+.comment__buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.comment__image {
+  height: 1.6rem;
+}
+.comment__image--margin {
+  margin-right: 1rem;
+}
+.comment__count {
+  margin-right: 0.3rem;
+}
+
 .footer {
   padding: 0 1.6rem 1.6rem 1.6rem;
   color: white;
@@ -330,40 +575,32 @@ p,
   }
 }
 
-.hero {
+.hero--styling {
   background-image: url("../assets/images/hero-bio.jpg");
   height: 25rem;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: white;
-  display: flex;
-  align-items: center;
 }
 @media screen and (min-width: 768px) {
-  .hero {
-    height: 55vh;
+  .hero--styling {
+    height: 70vh;
   }
 }
 @media screen and (min-width: 1279px) {
-  .hero {
+  .hero--styling {
     height: 90vh;
   }
 }
-@media screen and (min-width: 1279px) {
-  .hero__wrapper {
-    width: 1020px;
-    margin: 0 auto;
+.hero__title {
+  margin-left: 1.6rem;
+}
+@media screen and (min-width: 768px) {
+  .hero__title {
+    margin-left: 3.6rem;
   }
 }
-.hero__overlay {
-  position: absolute;
-  width: 100%;
-  height: inherit;
-  background-color: rgba(50, 50, 50, 0.5);
-}
-.hero__title {
-  margin: 0;
+@media screen and (min-width: 1279px) {
+  .hero__title {
+    margin-left: 0;
+  }
 }
 
 @media screen and (min-width: 1279px) {
@@ -379,6 +616,9 @@ p,
   .about__wrapper {
     padding: 0 8rem;
   }
+}
+.about__title {
+  padding-left: 1.6rem;
 }
 @media screen and (min-width: 768px) {
   .about__title {
@@ -503,197 +743,4 @@ p,
   .gallery__title {
     padding-bottom: 2.4rem;
   }
-}
-
-.conversation__container {
-  padding-bottom: 1.6rem;
-}
-@media screen and (min-width: 768px) {
-  .conversation__container {
-    padding-bottom: 3.6rem;
-  }
-}
-@media screen and (min-width: 1279px) {
-  .conversation__container {
-    width: 1020px;
-    margin: 0 auto;
-  }
-}
-.conversation__wrapper {
-  display: flex;
-  border-bottom: 1px solid #e1e1e1;
-  margin: 0 1.6rem;
-}
-@media screen and (min-width: 768px) {
-  .conversation__wrapper {
-    margin: 0 8rem;
-  }
-}
-@media screen and (min-width: 1279px) {
-  .conversation__wrapper {
-    width: 50%;
-    margin: 0 auto;
-  }
-}
-.conversation__title {
-  padding-left: 1.6rem;
-}
-@media screen and (min-width: 768px) {
-  .conversation__title {
-    padding-left: 3.6rem;
-  }
-}
-.conversation__icon {
-  max-width: 8rem;
-  max-height: 8rem;
-  padding: 1.6rem 2rem 0 0;
-}
-.conversation__photo {
-  width: 4.8rem;
-  height: 4.8rem;
-  background-image: url("../assets/images/Mohan-muruge.jpg");
-  background-size: cover;
-  background-position: 20% 50%;
-  border-radius: 50%;
-}
-@media screen and (min-width: 768px) {
-  .conversation__photo {
-    margin-top: 0.8rem;
-  }
-}
-
-.form {
-  width: 100%;
-}
-.form__inner {
-  padding-bottom: 1.6rem;
-  display: flex;
-  flex-direction: column;
-}
-@media screen and (min-width: 768px) {
-  .form__inner {
-    padding-bottom: 2.4rem;
-  }
-}
-.form__label {
-  text-transform: uppercase;
-  color: #afafaf;
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-}
-.form__input {
-  all: unset;
-  margin-bottom: 1.6rem;
-  border: 1px solid #e1e1e1;
-  border-radius: 4px;
-  background-color: #fafafa;
-  padding: 1.2rem;
-}
-.form__input:focus {
-  border: 1px solid #323232;
-}
-.form__input::placeholder {
-  color: #323232;
-}
-.form__input--error {
-  border-color: #d22d2d;
-}
-@media screen and (min-width: 768px) {
-  .form__input {
-    margin-bottom: 2.4rem;
-    padding: 1.6rem;
-  }
-}
-.form__input--height {
-  height: 8rem;
-}
-@media screen and (min-width: 768px) {
-  .form__wrapper {
-    display: flex;
-    justify-content: flex-end;
-  }
-}
-.form__button {
-  background-color: #323232;
-  color: white;
-  border: none;
-  padding: 0 3.2rem;
-  height: 4rem;
-  border-radius: 4px;
-  text-transform: uppercase;
-  font-weight: 600;
-  width: 100%;
-  font-size: 1.5rem;
-  transition: background-color 1s;
-}
-.form__button:hover {
-  background-color: #000000;
-}
-@media screen and (min-width: 768px) {
-  .form__button {
-    width: 15rem;
-  }
-}
-
-.comments {
-  padding: 0 1.6rem;
-}
-@media screen and (min-width: 768px) {
-  .comments {
-    padding: 0 8rem;
-  }
-}
-@media screen and (min-width: 1279px) {
-  .comments {
-    max-width: 50%;
-    margin: 0 auto;
-    padding: 0;
-  }
-}
-
-.comment {
-  display: flex;
-  width: 100%;
-  border-bottom: 1px solid #e1e1e1;
-  padding: 1.6rem 0;
-}
-@media screen and (min-width: 768px) {
-  .comment {
-    padding: 2.4rem 0;
-  }
-}
-.comment__img {
-  height: 4.8rem;
-  width: 4.8rem;
-  background-color: #e1e1e1;
-  border-radius: 50%;
-  margin-right: 2rem;
-}
-.comment__user {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 0.8rem;
-}
-.comment__name {
-  font-weight: 600;
-}
-.comment__date {
-  color: #afafaf;
-}
-@media screen and (min-width: 768px) {
-  .comment__text {
-    line-height: 2.4rem;
-  }
-}
-.comment__wrapper {
-  width: 100%;
-}
-.comment__delete {
-  color: #afafaf;
-  text-transform: uppercase;
-  font-size: 1rem;
-  margin-top: 1.4rem;
-  font-weight: 600;
 }/*# sourceMappingURL=bio.css.map */

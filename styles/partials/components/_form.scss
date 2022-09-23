@@ -1,0 +1,86 @@
+@use "../resets";
+@use "../typography";
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.form {
+  width: 100%;
+
+  &__inner {
+    padding-bottom: $standard-spacing-mobile;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      padding-bottom: $gutters-desktop;
+    }
+  }
+
+  &__label {
+    text-transform: uppercase;
+    color: $brand-primary-2;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  &__input {
+    all: unset;
+    margin-bottom: 1.6rem;
+    border: 1px solid $brand-secondary-2;
+    border-radius: 4px;
+    background-color: $brand-secondary-3;
+    padding: 1.2rem;
+
+    &:focus {
+      border: 1px solid $brand-primary-1;
+    }
+
+    &::placeholder {
+      color: $brand-primary-1;
+    }
+
+    &--error {
+      border-color: #d22d2d;
+    }
+
+    @include tablet {
+      margin-bottom: 2.4rem;
+      padding: 1.6rem;
+    }
+
+    &--height {
+      height: 8rem;
+    }
+  }
+
+  &__wrapper {
+    @include tablet {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__button {
+    @include button;
+    // background-color: $brand-primary-1;
+    // color: white;
+    // border: none;
+    padding: 0 3.2rem;
+    // height: 4rem;
+    // border-radius: 4px;
+    // text-transform: uppercase;
+    // font-weight: 600;
+    width: 100%;
+    font-size: 1.5rem;
+    // transition: background-color 1s;
+
+    // &:hover {
+    //   background-color: $brand-secondary-1;
+    // }
+
+    @include tablet {
+      width: 15rem;
+    }
+  }
+}
