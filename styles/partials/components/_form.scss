@@ -63,21 +63,9 @@
 
   &__button {
     @include button;
-    // background-color: $brand-primary-1;
-    // color: white;
-    // border: none;
     padding: 0 3.2rem;
-    // height: 4rem;
-    // border-radius: 4px;
-    // text-transform: uppercase;
-    // font-weight: 600;
     width: 100%;
     font-size: 1.5rem;
-    // transition: background-color 1s;
-
-    // &:hover {
-    //   background-color: $brand-secondary-1;
-    // }
 
     @include tablet {
       width: 15rem;

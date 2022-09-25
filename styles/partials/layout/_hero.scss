@@ -1,0 +1,46 @@
+@use "../resets";
+@use "../typography";
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.hero {
+  background-image: url("../assets/images/hero-shows.jpg");
+  height: 70vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include tablet {
+    height: 90vh;
+    background-position: 0% 55%;
+  }
+
+  @include desktop {
+    height: 100vh;
+    background-position: 0% 30%;
+  }
+
+  &__container {
+    @include desktop {
+      width: $desktop-max-width;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    background-color: rgba($brand-primary-1, 0.5);
+
+    @include tablet {
+      height: inherit;
+    }
+  }
+}

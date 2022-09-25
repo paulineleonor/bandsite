@@ -2,32 +2,15 @@
 @use "./partials/typography";
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
-@use "./partials/components/header";
-@use "./partials/components/hero";
-@use "./partials/components/footer";
+@use "./partials/layout/header";
+@use "./partials/layout/hero";
+@use "./partials/components/iframe";
+@use "./partials/layout/footer";
 
 .hero {
   &--styling {
     background-image: url("../assets/images/hero-shows.jpg");
   }
-  // height: 60vh;
-  // width: 100%;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // color: white;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-
-  // @include tablet {
-  //   height: 70vh;
-  //   background-position: 0% 55%;
-  // }
-
-  // @include desktop {
-  //   height: 100vh;
-  //   background-position: 0% 30%;
-  // }
 
   &__wrapper {
     @include desktop {
@@ -43,17 +26,6 @@
       align-items: flex-end;
     }
   }
-
-  // &__overlay {
-  //   position: absolute;
-  //   width: 100%;
-  //   height: inherit;
-  //   background-color: rgba($brand-primary-1, 0.5);
-
-  //   @include tablet {
-  //     height: inherit;
-  //   }
-  // }
 
   &__copy {
     position: relative;
@@ -92,29 +64,6 @@
       width: 95%;
       padding-bottom: 1.6rem;
       margin-left: 0;
-    }
-  }
-}
-
-.iframe {
-  @include desktop {
-    width: 50%;
-  }
-
-  &__display {
-    position: relative;
-    padding: 0 $standard-spacing-mobile;
-    margin-bottom: 3.6rem;
-
-    @include tablet {
-      width: 60%;
-      padding: 0 $standard-spacing-desktop;
-      margin-bottom: 0;
-    }
-
-    @include desktop {
-      width: 100%;
-      padding: 1.5rem 0 1em 9rem;
     }
   }
 }
@@ -252,9 +201,6 @@
   }
 
   &__button {
-    // text-transform: uppercase;
-    // font-weight: 600;
-    // color: white;
     font-size: 1.3rem;
     margin: 2.4rem 0 1.6rem 0;
 
@@ -267,16 +213,6 @@
 
   &__link {
     @include button;
-    // background-color: $brand-primary-1;
-    // border-radius: 4px;
-    // height: 4rem;
-    // align-items: center;
-    // display: flex;
-    // justify-content: center;
-    // transition: background-color 1s;
-    // text-transform: uppercase;
-    // color: white;
-    // font-weight: 600;
 
     &:hover {
       background-color: $brand-secondary-1;

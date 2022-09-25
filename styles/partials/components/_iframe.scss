@@ -1,0 +1,27 @@
+@use "../resets";
+@use "../typography";
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.iframe {
+  @include desktop {
+    width: 50%;
+  }
+
+  &__display {
+    position: relative;
+    padding: 0 $standard-spacing-mobile;
+    margin-bottom: 3.6rem;
+
+    @include tablet {
+      width: 60%;
+      padding: 0 $standard-spacing-desktop;
+      margin-bottom: 0;
+    }
+
+    @include desktop {
+      width: 100%;
+      padding: 1.5rem 0 1em 9rem;
+    }
+  }
+}

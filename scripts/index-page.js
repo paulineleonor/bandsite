@@ -1,8 +1,8 @@
 const apiKey = "55925818-32b8-44e9-a2bc-5fbdc5153bb7";
-
 let commentsSectionEl = document.querySelector(".comments");
 let comments = [];
 
+// Formats dynamic timestamp
 const dynamicTimestamp = (timeStamp) => {
   const dateStringBuilder = (num, string) => {
     if (num !== 1) {
@@ -43,12 +43,12 @@ const dynamicTimestamp = (timeStamp) => {
   return dateStringBuilder(inYears, "year");
 };
 
+// Retrieves and displays comments from API
 const getComments = () => {
   axios
     .get(`https://project-1-api.herokuapp.com/comments/?api_key=${apiKey}`)
     .then((response) => {
       comments = response.data;
-      console.log(comments);
       comments.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
       displayComments(comments);
     })
@@ -70,6 +70,7 @@ const displayComments = (array) => {
   }
 };
 
+// Allows users to delete comments
 const deleteComment = (id) => {
   axios
     .delete(
@@ -86,6 +87,7 @@ const deleteComment = (id) => {
     });
 };
 
+// Allows users to like comments and increments like count
 const likeComment = (id) => {
   axios
     .put(
@@ -103,7 +105,7 @@ const likeComment = (id) => {
     });
 };
 
-// Builds a comment block for each object in comment array
+// Builds a comment block for each comment and adds event listener to like and delete buttons
 const displayComment = (comment) => {
   let commentBlockEl = document.createElement("article");
   commentBlockEl.classList.add("comment");
@@ -151,7 +153,7 @@ const displayComment = (comment) => {
   let likeButtonEl = document.createElement("img");
   likeButtonEl.classList.add("comment__image");
   likeButtonEl.classList.add("comment__image--margin");
-  likeButtonEl.setAttribute("src", "../assets/images/like.png");
+  likeButtonEl.setAttribute("src", "./assets/images/like.png");
   buttonsEl.appendChild(likeButtonEl);
 
   likeButtonEl.addEventListener("click", () => {
@@ -160,7 +162,7 @@ const displayComment = (comment) => {
 
   let deleteButtonEl = document.createElement("img");
   deleteButtonEl.classList.add("comment__image");
-  deleteButtonEl.setAttribute("src", "../assets/images/bin.png");
+  deleteButtonEl.setAttribute("src", "./assets/images/bin.png");
   buttonsEl.appendChild(deleteButtonEl);
 
   deleteButtonEl.addEventListener("click", () => {
@@ -168,11 +170,9 @@ const displayComment = (comment) => {
   });
 };
 
-displayComments(comments);
-
 const form = document.querySelector(".form");
 
-// Handles form submission to add comment to comments array
+// Handles form submission to add new comment to API
 const postComment = (event) => {
   event.preventDefault();
 
@@ -208,11 +208,10 @@ const postComment = (event) => {
 
   axios
     .post(
-      "https://project-1-api.herokuapp.com/comments/?api_key=55925818-32b8-44e9-a2bc-5fbdc5153bb7",
+      `https://project-1-api.herokuapp.com/comments/?api_key=${apiKey}`,
       newComment
     )
     .then((response) => {
-      console.log(response);
       getComments();
 
       event.target.reset();

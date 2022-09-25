@@ -4,20 +4,7 @@
 @use "../mixins" as *;
 
 .footer {
-  padding: 0 $standard-spacing-mobile $standard-spacing-mobile
-    $standard-spacing-mobile;
-  color: white;
   background-color: $brand-primary-1;
-
-  @include tablet {
-    padding: $heading-top-desktop $standard-spacing-desktop 0
-      $standard-spacing-desktop;
-  }
-
-  @include desktop {
-    width: $desktop-max-width;
-    margin: 0 auto;
-  }
 
   & section {
     @include tablet {
@@ -26,7 +13,20 @@
   }
 
   &__container {
+    padding: 0 $standard-spacing-mobile $standard-spacing-mobile
+      $standard-spacing-mobile;
+    color: white;
     background-color: $brand-primary-1;
+
+    @include tablet {
+      padding: $heading-top-desktop $standard-spacing-desktop 0
+        $standard-spacing-desktop;
+    }
+
+    @include desktop {
+      width: $desktop-max-width;
+      margin: 0 auto;
+    }
   }
 }
 

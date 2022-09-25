@@ -2,24 +2,27 @@
 @use "../mixins" as *;
 @use "../variables" as *;
 @use "../typography";
-@use "../animations";
 
 .header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: $desktop-max-width;
   background-color: $brand-primary-1;
 
-  @include tablet {
-    flex-direction: row;
-    justify-content: flex-start;
-    height: 10rem;
-  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: $desktop-max-width;
+    background-color: $brand-primary-1;
 
-  @include desktop {
-    margin: 0 auto;
+    @include tablet {
+      flex-direction: row;
+      justify-content: flex-start;
+      height: 10rem;
+    }
+
+    @include desktop {
+      margin: 0 auto;
+    }
   }
 
   &__link {
@@ -38,10 +41,6 @@
     @include desktop {
       margin-left: 0;
     }
-  }
-
-  &__wrapper {
-    background-color: $brand-primary-1;
   }
 }
 

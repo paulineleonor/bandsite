@@ -2,19 +2,18 @@ const apiKey = "55925818-32b8-44e9-a2bc-5fbdc5153bb7";
 let shows = [];
 let showsList = [];
 
+// Formats show dates
 const dateFormatting = (timeStamp) => {
   let formattedDate = new Date(timeStamp).toDateString();
   return formattedDate;
 };
 
+// Retrieves and displays shows from API
 axios
-  .get(
-    "https://project-1-api.herokuapp.com/showdates/?api_key=55925818-32b8-44e9-a2bc-5fbdc5153bb7"
-  )
+  .get(`https://project-1-api.herokuapp.com/showdates/?api_key=${apiKey}`)
   .then((response) => {
     shows = response.data;
     displayShows(shows);
-
     selectShow(showsList);
   });
 
@@ -47,29 +46,11 @@ showKeys.forEach((header) => {
   }
 });
 
-// const buildHeadings = (array) => {
-//   for (let i = 0; i < array.length; i++) {
-//     let headerEl = document.createElement("h3");
-//     headerEl.classList.add("shows__heading");
-//     showsHeadingsEl.appendChild(headerEl);
-//     headerEl.innerText = array[i];
-
-//     if (i === 0) {
-//       headerEl.classList.add("shows__heading--width");
-//     }
-//   }
-// };
-
-// buildHeadings(showKeys);
-
 // Creates full list of shows
 const displayShows = (array) => {
   array.forEach((showBlock) => {
     displayShow(showBlock);
   });
-  // for (let i = 0; i < array.length; i++) {
-  //   displayShow(array[i]);
-  // }
 };
 
 // Builds a block for each object in shows array
